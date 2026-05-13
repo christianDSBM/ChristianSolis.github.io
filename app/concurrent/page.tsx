@@ -2,9 +2,16 @@
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { SectionHeader } from "@/components/section-header"
-import { ProjectCard } from "@/components/project-card"
 import { Badge } from "@/components/ui/badge"
+import { 
+  Workflow, 
+  ArrowRight,
+  Lock,
+} from "lucide-react"
+import { InsightBox } from "@/components/tutorial/InsightBox"
+import { CodeBlock } from "@/components/tutorial/CodeBlock"
+import { ProjectCard } from "@/components/project-card"
+import { PDFViewer } from "@/components/pdf-viewer"
 
 export default function ConcurrentPage() {
   return (
@@ -18,144 +25,154 @@ export default function ConcurrentPage() {
             Concurrent Computing
           </h1>
           
-          {/* AQUÍ ESTÁ LA MAGIA: Contenedor div con text-justify, hyphens-auto y space-y-6 para separar párrafos */}
           <div className="text-xl text-muted-foreground leading-relaxed max-w-3xl space-y-6 text-justify hyphens-auto">
             <p>
-              Cuando me preguntan qué es la computación concurrente, suelo decir algo como: es el estudio de lo que sucede cuando muchos procesos realizan cómputo para lograr un objetivo común. Sin embargo, para quien no sabe mucho de computación, esto no es más que un trabalenguas.
+              When people ask me what concurrent computing is, I usually say something like: it is the study of what happens when multiple processes perform computations to achieve a common goal. However, for those unfamiliar with computer science, this is nothing more than a tongue twister.
             </p>
 
             <p>
-              Mejor imaginemos un rompecabezas de 1,000 piezas. Si decides armarlo solo, prepárate para una jornada larga. Según datos del Campeonato Mundial de Rompecabezas, el tiempo promedio de los mejores competidores individuales ronda los 100 minutos (1h 40m).
-              Ahora, ¿qué esperaríamos si lo armamos en pareja? Lo lógico sería pensar que, al ser dos personas, tardaríamos la mitad: 50 minutos. Pero la realidad es distinta: el promedio en parejas es de 1 hora con 4 minutos.
+              Instead, let's imagine a 1,000-piece puzzle. If you decide to build it alone, prepare for a long journey. According to data from the World Jigsaw Puzzle Championship, the average time for top individual competitors is around 100 minutes (1h 40m). 
+              Now, what would we expect if we build it as a pair? It would be logical to think that, being two people, we would take half the time: 50 minutes. But the reality is different: the average for pairs is 1 hour and 4 minutes.
             </p>
 
             <p>
-              ¿Por qué no tardamos la mitad si somos el doble de manos?
+              Why don't we take half the time if we have twice the hands?
             </p>
 
             <p>
-              Aquí es donde entra la computación concurrente. Esta disciplina estudia cómo escalan varios procesos al realizar una misma tarea y cómo deben compartir los recursos.
-              Imagina que yo tomo 500 piezas y mi compañero las otras 500. Si para completar mi sección necesito una pieza que él tiene en su montón, mi trabajo se detiene. Estamos bloqueados. Surge entonces la pregunta fundamental: ¿Cómo acomodar las piezas para que sean visibles y útiles para ambos sin estorbarnos?
+              This is where concurrent computing comes in. This discipline studies how multiple processes scale when performing the same task and how they must share resources. 
+              Imagine that I take 500 pieces and my partner takes the other 500. If I need a piece that he has in his pile to complete my section, my work stops. We are blocked. Then the fundamental question arises: How do we arrange the pieces so they are visible and useful for both of us without getting in each other's way?
             </p>
 
             <p>
-              En computación, esto se traduce en diseñar estrategias para que los procesadores no se peleen por la misma "pieza" de memoria. Estudiamos cómo evitar que un proceso se quede esperando eternamente (deadlock) o cómo asegurar que, aunque todos trabajen al mismo tiempo, el resultado final sea exactamente el mismo rompecabezas y no uno con piezas forzadas o faltantes.
+              In computing, this translates into designing strategies so that processors do not fight over the same "piece" of memory. We study how to prevent a process from waiting forever (deadlock) or how to ensure that, even if everyone works at the same time, the final result is exactly the same puzzle and not one with forced or missing pieces.
             </p>
 
             <p>
-              En fin, la computación concurrente no se trata solo de trabajar más rápido, sino de aprender a colaborar con eficiencia para que el esfuerzo conjunto realmente valga la pena.
+              In short, concurrent computing is not just about working faster, but about learning to collaborate efficiently so that the joint effort is truly worth it.
             </p>
 
-            <p>Para profundizar en los retos técnicos de los sistemas compartidos, he preparado una serie de láminas enfocadas en la implementación práctica. Aquí analizamos casos de estudio utilizando Java, explorando cómo el lenguaje maneja la comunicación entre procesos y qué herramientas nos ofrece para evitar conflictos de memoria. Es un recorrido visual por el código que hace posible la computación de alto rendimiento.</p>
+            <p>To delve deeper into the technical challenges of shared systems, I have prepared a series of slides focused on practical implementation. Here we analyze case studies using Java, exploring how the language handles communication between processes and what tools it offers us to avoid memory conflicts. It is a visual journey through the code that makes high-performance computing possible.</p>
           </div>
         </div>
 
-        <div className="grid gap-8">
-          {/* Módulo 1: Fundamentos y Java */}
-        <ProjectCard 
-          title="I. Gestión de Hilos en Java (Thread Management)"
-          tags={["Java", "Multithreading", "Fundamentos"]}
-          description="
-          Siguiendo la analogía del rompecabezas, aquí exploramos cómo en Java solicitamos más compañeros para armar el rompecabezas. Esto es cómo crear hilos de ejecución mediante la clase Thread y la interfaz Runnable. 
-          Analizamos la diferencia entre que un compañero tenga sus propias piezas de rompecabezas (memoria local) y las piezas que están sobre la mesa a la vista de todos (memoria compartida). 
+        <div className="mb-12 text-muted-foreground max-w-3xl leading-relaxed">
+          Below, I have included several presentations created as supporting material for the 
+          Concurrent Computing course taught by Prof. Gilde Valeria Rodriguez Jimenez at Facultad de Ciencias, UNAM, 
+          as well as additional presentations developed for the Master's level Concurrent 
+          Computing course of Posgrado en Ciencia e Ingeniería at UNAM, under the guidance of Dr. Armando Castañeda Rojano.
+        </div>
 
-          En este bloque también discutimos el ciclo de vida de estos procesos: desde hilos que trabajan en segundo plano (daemons) hasta aquellos que controlan la aplicación principal."
-          insight="Entender que un hilo comparte el mismo espacio de memoria que su creador es la base de toda la computación concurrente; es lo que permite la colaboración, pero también lo que genera conflictos."
-          pdfUrl="/notes/Practica1.pdf"
+        <div className="grid gap-8">
+          {/* Module 1: Fundamentals and Java */}
+        <ProjectCard 
+          title="I. Thread Management in Java"
+          tags={["Java", "Multithreading", "Fundamentals"]}
+          description="
+          Following the puzzle analogy, here we explore how in Java we request more partners to assemble the puzzle. This covers how to create execution threads using the Thread class and the Runnable interface. 
+          We analyze the difference between a partner having their own puzzle pieces (local memory) and the pieces on the table in everyone's view (shared memory). 
+
+          In this block, we also discuss the lifecycle of these processes: from threads working in the background (daemons) to those that control the main application."
+          insight="Understanding that a thread shares the same memory space as its creator is the basis of all concurrent computing; it is what allows collaboration, but also what generates conflicts."
+          pdfUrl="https://drive.google.com/file/d/1gkegpoEvD4Fiuwi6PJNXMck6CSN9SwwL/preview"
         />   
 
-          {/* Módulo 2: Sincronización y Coordinación */}
+          {/* Module 2: Synchronization and Coordination */}
           <ProjectCard 
-            title="II. Exclusión Mutua y Sincronización"
-            tags={["Locking", "Java Concurrency", "Optimización"]}
+            title="II. Mutual Exclusion and Synchronization"
+            tags={["Locking", "Java Concurrency", "Optimization"]}
             description="
-            Aquí abordamos el reto de la exclusión mutua: ¿qué pasa cuando dos compañeros intentan tomar la misma pieza al mismo tiempo? 
-            Analizamos los mecanismos que Java nos ofrece para poner orden en la mesa, desde el uso de bloques 'synchronized' y variables 
-            'volatile', hasta por qué en sistemas complejos no basta con protegerlo todo de forma automática.
+            Here we address the challenge of mutual exclusion: what happens when two partners try to take the same piece at the same time? 
+            We analyze the mechanisms Java offers to bring order to the table, from the use of 'synchronized' blocks and 'volatile' variables, to why it is not enough to automatically protect everything in complex systems.
 
-            Exploramos herramientas avanzadas como la interfaz Lock y ReentrantLock, y cómo gestionar el trabajo mediante Pools de Hilos. 
-            Además, hacemos una breve transición hacia el uso de clases anónimas y expresiones lambda, cerrando con Callables y Futures 
-            para recibir resultados del equipo de manera asíncrona."
-            insight="Los candados intrínsecos son sencillos, pero la interfaz Lock nos permite ser 'justos' con el turno de cada compañero, evitando que alguien se quede esperando una pieza eternamente."
-            pdfUrl="/notes/Practica2.pdf"
+            We explore advanced tools such as the Lock interface and ReentrantLock, and how to manage work through Thread Pools. 
+            Additionally, we make a brief transition toward using anonymous classes and lambda expressions, closing with Callables and Futures to receive results from the team asynchronously."
+            insight="Intrinsic locks are simple, but the Lock interface allows us to be 'fair' with each partner's turn, preventing someone from waiting for a piece indefinitely."
+            pdfUrl="https://drive.google.com/file/d/1oO4lppaQsEPa7LvgZlhnT0QZ7Wsv3ONi/preview"
           />
 
-          {/* Módulo 3: Algoritmos Clásicos y Consistencia */}
+          {/* Module 3: Classical Algorithms and Memory Models */}
           <ProjectCard 
-          title="III. Algoritmos Clásicos y Modelos de Memoria"
-          tags={["Peterson", "Bakery", "Memoria de Java", "Volatile"]}
+          title="III. Classical Algorithms and Memory Models"
+          tags={["Peterson", "Bakery", "Java Memory Model", "Volatile"]}
           description="
-          ¿Qué pasa cuando el compilador intenta ser 'demasiado listo'? En este bloque exploramos el Modelo de Memoria de Java 
-          y el fenómeno del reordenamiento, donde el sistema cambia el orden de nuestras instrucciones para ganar eficiencia, 
-          rompiendo a veces la lógica de nuestro código. 
-          Discutimos la diferencia entre consistencia secuencial (orden estricto) y consistencia eventual, 
-          y cómo el uso de 'volatile' garantiza que los cambios realizados por un compañero sean visibles de inmediato 
-          para todo el equipo, actuando como una barrera de memoria indispensable."
-          insight="El reordenamiento de operaciones es el mayor enemigo de la consistencia; 'volatile' no es solo una etiqueta, es el grito que obliga a todos los procesadores a ponerse de acuerdo sobre la realidad de los datos."
-          pdfUrl="/notes/Practica3.pdf"
+          What happens when the compiler tries to be 'too smart'? In this block, we explore the Java Memory Model 
+          and the phenomenon of reordering, where the system changes the order of our instructions to gain efficiency, 
+          sometimes breaking our code's logic. 
+          We discuss the difference between sequential consistency (strict order) and eventual consistency, 
+          and how using 'volatile' ensures that changes made by one partner are immediately visible to the entire team, 
+          acting as an indispensable memory barrier."
+          insight="Instruction reordering is the greatest enemy of consistency; 'volatile' is not just a label, it is the shout that forces all processors to agree on the reality of the data."
+          pdfUrl="https://drive.google.com/file/d/1wU44Feks9MWKmppxZR4sdSSt_X9yDgQg/preview"
         />
         
-        {/* Módulo 4: Algoritmos Clásicos y Consistencia */}
+        {/* Module 4: Atomic Operations and Scalable Locks */}
         <ProjectCard 
-        title="IV. Operaciones Atómicas y Candados Escalables"
-        tags={["Atómicos", "Spinlocks", "Algoritmos de Espera", "Hardware"]}
+        title="IV. Atomic Operations and Scalable Locks"
+        tags={["Atomics", "Spinlocks", "Wait Algorithms", "Hardware"]}
         description="
-        ¿Cómo construirías un candado si Java no te diera ninguno? En este bloque descendemos al nivel del hardware 
-        para explorar las operaciones atómicas: acciones indivisibles como 'TestAndSet' y 'FetchAndAdd' que sirven 
-        como los ladrillos fundamentales de la sincronización. 
+        How would you build a lock if Java didn't give you one? In this block, we descend to the hardware level 
+        to explore atomic operations: indivisible actions like 'TestAndSet' and 'FetchAndAdd' that serve 
+        as the fundamental building blocks of synchronization. 
 
-        Implementamos desde cero diversos tipos de Spinlocks, analizando la evolución y el rendimiento de algoritmos 
-        clásicos: desde el simple TASLock y su mejora TTASLock, hasta soluciones más sofisticadas como BackoffLock 
-        (para reducir la congestión) y candados basados en colas como ALock y CLHLock, diseñados para escalar 
-        eficientemente en sistemas con muchos procesadores."
-        insight="Un buen candado no es solo el que protege la memoria, sino el que lo hace sin generar un 'tráfico' innecesario en el bus de datos; la escalabilidad nace de saber cuándo dejar de preguntar por la llave."
-        pdfUrl="/notes/Practica4.pdf"
+        We implement various types of Spinlocks from scratch, analyzing the evolution and performance of 
+        classical algorithms: from the simple TASLock and its improvement TTASLock, to more sophisticated solutions like BackoffLock 
+        (to reduce contention) and queue-based locks like ALock and CLHLock, designed to scale efficiently in systems with many processors."
+        insight="A good lock is not just one that protects memory, but one that does so without generating unnecessary 'traffic' on the data bus; scalability is born from knowing when to stop asking for the key."
+        pdfUrl="https://drive.google.com/file/d/14jJIiah2eGC5CN30kZvReV0FwDCx0edV/preview"
+      />
+
+              {/* Module V: Quiescent and Eventual Consistency */}
+        <ProjectCard 
+        title="V. Quiescent and Eventual Consistency"
+        tags={["Eventual Consistency", "Sloppy Counter", "Quiescent Consistency", "Diffraction tree"]}
+        description="
+        In this lab, we explore three implementations of a counter object, discussing how relaxing correctness leads to 
+        greater scalability of our concurrent object. We look at the Sloppy Counter, which is a counter with eventual consistency, and the Diffraction Tree, which is a counter with quiescent consistency."
+        insight="If you want higher correctness conditions, we must pay the price of low scalability; conversely, if we relax this, we can achieve greater scalability."
+        pdfUrl="https://drive.google.com/file/d/1skcbYjBji2k6nlUd06tpVnicvpvr5ow8/preview"
       />
 
       <ProjectCard 
-        title="V. El Algoritmo del Panadero de Lamport"
-        tags={["Leslie Lamport", "Teoría", "Liveness", "Algoritmos Clásicos"]}
+        title="VI. Lamport's Bakery Algorithm"
+        tags={["Leslie Lamport", "Theory", "Liveness", "Classical Algorithms"]}
         description="
         'Back in the days when the world’s first multiprocessor computers were being built and clouds 
         existed only in the sky, Leslie Lamport ruminated about a bakery.' 
 
-        Este bloque explora uno de los pilares más elegantes de la computación distribuida. La relevancia 
-        del algoritmo del Panadero radica en que logra la exclusión mutua sin necesidad de soporte 
-        especial del hardware (primitivas de sincronización); solo requiere que los procesos puedan 
-        leer y escribir en memoria compartida. 
+        This block explores one of the most elegant pillars of distributed computing. The relevance of 
+        the Bakery algorithm lies in the fact that it achieves mutual exclusion without the need for special hardware support (synchronization primitives); it only requires that processes can read and write to shared memory. 
 
-        Analizamos cómo este protocolo garantiza propiedades fundamentales de viveza: es libre de 
-        interbloqueos (deadlock-free), libre de inanición (starvation-free) y, sobre todo, garantiza 
-        justicia (fairness) mediante un sistema de turnos tipo FIFO, asegurando que cualquier proceso 
-        que desee entrar a su sección crítica eventualmente lo logre en el orden en que llegó."
-        insight="Lamport demostró que la exclusión mutua es un problema lógico, no solo de hardware; el Panadero es la prueba de que el orden puede emerger del caos incluso si los relojes y la memoria no son perfectos."
-        pdfUrl="/notes/BakeryAlgorithm.pdf"
+        We analyze how this protocol guarantees fundamental liveness properties: it is deadlock-free, starvation-free, and above all, guarantees fairness through a FIFO-style numbering system, ensuring that any process wishing to enter its critical section eventually succeeds in the order it arrived."
+        insight="Lamport proved that mutual exclusion is a logical problem, not just a hardware one; the Bakery is proof that order can emerge from chaos even if clocks and memory are not perfect."
+        pdfUrl="https://drive.google.com/file/d/1HdH36bXKcAOmHUpfa_2roBVy4GyC7-hz/preview"
       />
 
       <ProjectCard 
-      title="VI. Consenso Distribuido: El Protocolo Paxos"
-      tags={["Paxos", "Consenso", "Sistemas Distribuidos", "Tolerancia a Fallos"]}
+      title="VII. Distributed Consensus: The Paxos Protocol"
+      tags={["Paxos", "Consensus", "Distributed Systems", "Fault Tolerance"]}
       description="
-      ¿Cómo logramos que un grupo de computadoras se ponga de acuerdo en un valor único si 
-      la red es inestable y algunas máquinas pueden fallar? Entramos al terreno de Paxos, 
-      el algoritmo de consenso más influyente en la historia de los sistemas distribuidos.
+      How do we get a group of computers to agree on a single value if the network is unstable and 
+      some machines might fail? We enter the realm of Paxos, the most influential consensus algorithm 
+      in the history of distributed systems.
 
-      Exploramos la metáfora del 'Parlamento de Paxos' de Leslie Lamport para entender 
-      los roles de Proponentes, Aceptadores y Aprendices. Analizamos las fases del 
-      protocolo (Prepare y Accept) y cómo este garantiza la seguridad (safety): que nunca 
-      se elijan dos valores distintos, permitiendo que sistemas como Google o Amazon 
-      mantengan la consistencia de sus datos a escala global."
-      insight="Paxos es el pilar de la computación en la nube moderna; nos enseña que el consenso no requiere que todos estén vivos o presentes, sino que una mayoría actúe con reglas inquebrantables."
-      pdfUrl="/notes/PracticaPaxos.pdf"
+      We explore Leslie Lamport's 'Paxos Parliament' metaphor to understand the roles of Proposers, 
+      Acceptors, and Learners. We analyze the phases of the protocol (Prepare and Accept) and how 
+      it guarantees safety: that two different values are never chosen, allowing systems like Google 
+      or Amazon to maintain data consistency at global scale."
+      insight="Paxos is the pillar of modern cloud computing; it teaches us that consensus does not require everyone to be alive or present, but rather that a majority acts with unbreakable rules."
+      pdfUrl="https://drive.google.com/file/d/1hJom87iqwdjuAbVJkpm7aPo36y3EpTHL/preview"
     />
 
       </div>
 
         <div className="mt-16 p-8 bg-secondary/20 rounded-2xl border border-border/50">
-          <h3 className="font-serif text-2xl mb-4">Próximamente: Artículos Detallados</h3>
-          <p className="text-muted-foreground">
-            Estoy redactando mini-artículos específicos sobre la **Jerarquía de Consenso de Herlihy** y la implementación de estructuras de datos **Wait-Free**.
-          </p>
+          <h3 className="font-serif text-2xl mb-4">Upcoming: Detailed Articles</h3>
+            <p className="text-muted-foreground">
+              I am currently working on a new presentation exploring the paradigm shift toward using languages like{" "}
+              <span className="text-emerald-400 font-bold">Rust</span>, which inherently prevents Race Conditions, and{" "}
+              <span className="text-emerald-400 font-bold">Clojure</span>, with its focus on the Message-Passing concurrency model.
+            </p>
         </div>
       </div>
 
