@@ -272,7 +272,7 @@ plt.show()`}
               </OutputSection>
 
               <OutputSection
-                imageUrl="/projects/credit-scoring/distributions-numerical.png"
+                imageUrl="distributions-numerical.png"
                 imageAlt="Distribuciones de variables numéricas"
                 caption="Fig 3. Histogramas de Age, Credit Amount y Duration"
               />
@@ -473,7 +473,7 @@ print(f"AUC-ROC: {auc:.4f}")`}
               </OutputSection>
 
               <OutputSection
-                imageUrl="/projects/credit-scoring/roc-curve.png"
+                imageUrl="roc-curve.png"
                 imageAlt="Curva ROC del modelo"
                 caption="Fig 5. Curva ROC — capacidad de separación del modelo"
               />
