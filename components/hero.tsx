@@ -1,22 +1,21 @@
 "use client"
 
-import { ArrowDown, FileText, Github } from "lucide-react"
+import { ArrowDown, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { 
-  SiPython, 
-  SiPostgresql, 
-  SiLatex, 
-  SiLooker, 
-  SiGooglesheets, 
-  SiOpenjdk, 
-  SiGit, 
-  SiGnusocial 
+  SiPython, SiPostgresql, SiLatex, SiLooker, 
+  SiGooglesheets, SiOpenjdk, SiGit, SiGnusocial,
+  SiRust, SiPandas, SiScikitlearn, SiNumpy 
 } from "react-icons/si"
 import { FaCoffee } from "react-icons/fa"
 
 export function Hero() {
   const tools = [
-    { Icon: SiPython, label: "Python", category: "Data" },
+    { Icon: SiPython, label: "Python", category: "Data Science" },
+    { Icon: SiRust, label: "Rust", category: "Systems/Safety" },
+    { Icon: SiPandas, label: "Pandas", category: "Analysis" },
+    { Icon: SiScikitlearn, label: "Scikit-Learn", category: "ML" },
+    { Icon: SiNumpy, label: "NumPy", category: "Math" },
     { Icon: SiPostgresql, label: "SQL", category: "DB" },
     { Icon: SiLatex, label: "LaTeX", category: "Formal" },
     { Icon: FaCoffee, label: "Java", category: "Concurrent" },
@@ -28,7 +27,8 @@ export function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex flex-col justify-center pt-20 pb-16 relative overflow-hidden">
+    // Reduje pb-16 a pb-8 para que no quede tanto espacio antes de la frase de autoridad
+    <section className="min-h-[80vh] flex flex-col justify-center pt-20 pb-8 relative overflow-hidden">
       <style jsx global>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -48,7 +48,6 @@ export function Hero() {
             Computer Science & Mathematics • UNAM
           </p>
           
-          {/* NOMBRE CORREGIDO CON GRADIENTE VISIBLE */}
           <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-white to-emerald-500 bg-clip-text text-transparent inline-block">
             Christian Solís
           </h1>
@@ -77,8 +76,7 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* TECHNICAL TOOLBOX CON LABEL VERDE Y LÍNEA */}
-          <div className="flex flex-col gap-6 mb-16 pt-8 relative">
+          <div className="flex flex-col gap-6 mb-4 pt-8 relative">
             <div className="flex items-center gap-4 mb-2">
               <span className="text-xs text-emerald-500 font-bold uppercase tracking-widest whitespace-nowrap">
                 Technical Toolbox
@@ -104,16 +102,7 @@ export function Hero() {
               </div>
             </div>
           </div>
-
-          <div className="flex items-center gap-8 text-[11px] text-muted-foreground font-medium uppercase tracking-[0.15em]">
-            <div className="flex items-center gap-2">
-              <span className="w-6 h-px bg-emerald-500/40" />
-              <span className="text-emerald-500/80">Optimization</span>
-            </div>
-            <span className="hidden sm:inline">Stochastic Analysis</span>
-            <span className="hidden md:inline">Concurrent Systems</span>
-            <span className="hidden lg:inline">Bivariate Data</span>
-          </div>
+          {/* SE ELIMINÓ LA BARRA DE TEXTO 'OPTIMIZATION', 'STOCHASTIC ANALYSIS', ETC. */}
         </div>
       </div>
     </section>

@@ -7,41 +7,60 @@ const interests = [
   "Distributed Computing",
   "Probabilistic Algorithms",
   "Stochastic Processes",
-  "Data Analytics",
+  "Machine Learning",
   "Concurrent Systems",
   "Mathematical Optimization",
+  "Data Analytics",
+  "Rust & Python",
 ]
 
 export function AboutSection() {
   return (
     <section className="py-24 relative w-full" id="about">
-      {/* Eliminamos la línea superior que no querías */}
-      
       <div className="max-w-5xl mx-auto px-6">
         
-        {/* REEMPLAZO DEL HEADER CON LA LÍNEA ESMERALDA PERSONALIZADA */}
+        {/* HEADER CON LÍNEA ESMERALDA */}
         <div className="flex items-center gap-4 mb-12">
           <h2 className="text-3xl font-serif font-semibold tracking-tight text-foreground">
             About
           </h2>
-          {/* Esta es la línea que querías colorear */}
           <div className="h-[1px] flex-1 bg-gradient-to-r from-emerald-500/60 via-emerald-400/20 to-transparent" />
         </div>
 
         <div className="grid gap-12 md:grid-cols-3 mt-8">
           <div className="md:col-span-2 space-y-7">
+            {/* PÁRRAFO 1: IDENTIDAD Y ENFOQUE */}
             <p className="text-lg leading-relaxed text-foreground">
-              I am a problem solver driven by the intersection of abstract mathematics and advanced computing. With a **B.S. in Mathematics** and currently a **Master’s candidate in Computer Science at UNAM**, I possess a unique analytical framework for breaking down complex problems and designing robust, scalable solutions.
+              I am a <span className="text-emerald-400 font-medium">Master's candidate in Computer Science and Engineering</span> and a <span className="text-emerald-400 font-medium">Mathematician</span> from Univversidad Nacional Autónoma de México (UNAM). 
+              My primary focus has been the search for strategies to <span className="text-emerald-400 font-medium">reduce algorithmic complexity</span>, a goal I have approached from different perspectives.
             </p>
 
+            {/* PÁRRAFO 2: LA CONEXIÓN TÉCNICA */}
             <p className="text-muted-foreground leading-relaxed">
-              I specialize in transforming theoretical foundations into practical implementations. While I am proficient in **SQL** and **Python (Pandas, NumPy)** for data analytics, my competitive edge lies in my ability to apply probabilistic thinking, graph theory, and algorithmic optimization to extract real-world value from data.
+              Initially, I specialized in <span className="text-emerald-400 font-medium">concurrency</span> as a tool to optimize execution in distributed systems. 
+              Recently, I have expanded this analysis toward <span className="text-emerald-400 font-medium">randomization</span>, exploring how relaxing absolute 
+              certainty allows for gains in scalability and efficiency.
             </p>
 
+            {/* PÁRRAFO 3: TRANSICIÓN A IA Y DATA SCIENCE */}
+            <p className="text-muted-foreground leading-relaxed">
+              This same search for solutions to high-complexity problems led me to delve into <span className="text-emerald-400 font-medium">Artificial 
+                Intelligence</span>. I have found in AI and <span className="text-emerald-400 font-medium">Machine Learning</span> a third complementary 
+                approach, where using tools like <span className="text-emerald-400 font-medium">Pandas, Scikit-learn, and Matplotlib</span> allows me to 
+                materialize theoretical models into practical data analysis implementations.
+            </p>
+
+            {/* PÁRRAFO 4: NÚCLEO MATEMÁTICO Y DOCENCIA */}
+            <p className="text-muted-foreground leading-relaxed">
+              My background in <span className="text-emerald-400 font-medium">Probability, Stochastic Processes, and Statistics</span> acts as the core uniting these areas. Additionally, my <span className="text-emerald-400 font-medium">5-year tenure as a Teaching Assistant</span> at the Faculty of Sciences has been key to developing my ability to translate deep mathematical concepts into clear, accessible explanations.
+            </p>
+
+            {/* CALL TO ACTION PROFESIONAL */}
             <p className="text-muted-foreground leading-relaxed italic border-l-2 border-emerald-500/30 pl-4 py-1">
-              Currently transitioning from academia to industry, I am focused on roles that value deep technical thinking.
+              Currently transitioning to the industry, seeking challenges in Data Science roles where technical rigor is the standard.
             </p>
 
+            {/* CORE EXPERTISE TAGS */}
             <div className="pt-4">
               <h3 className="text-xs font-semibold mb-4 text-emerald-500/80 tracking-widest uppercase italic">Core Expertise</h3>
               <div className="flex flex-wrap gap-2">
@@ -54,19 +73,20 @@ export function AboutSection() {
             </div>
           </div>
 
+          {/* COLUMNA DERECHA: EDUCACIÓN Y CONTACTO */}
           <div className="space-y-10 md:pl-6">
             <div className="space-y-5">
               <h3 className="text-sm font-semibold text-foreground/90 tracking-wide border-b border-emerald-500/20 pb-2">Education</h3>
               <div className="space-y-4">
                 <div className="flex gap-3 group">
-                  <GraduationCap className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <GraduationCap className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] transition-all" />
                   <div>
                     <p className="font-medium text-sm text-foreground">M.S. Computer Science & Engineering</p>
                     <p className="text-xs text-muted-foreground">UNAM, 2024 — Present</p>
                   </div>
                 </div>
                 <div className="flex gap-3 group">
-                  <GraduationCap className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
+                  <GraduationCap className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5 group-hover:drop-shadow-[0_0_8px_rgba(16,185,129,0.3)] transition-all" />
                   <div>
                     <p className="font-medium text-sm text-foreground">B.S. Mathematics</p>
                     <p className="text-xs text-muted-foreground">UNAM, 2022</p>

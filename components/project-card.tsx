@@ -29,25 +29,33 @@ export function ProjectCard({
   status = "completed",
 }: ProjectCardProps) {
   return (
-    <Card className="group relative overflow-hidden border-border/60 hover:border-border hover:shadow-lg transition-all duration-300 bg-card">
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <Card className="group relative overflow-hidden border-emerald-500/10 hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-500 bg-[#0a0a0b]">
+      {/* Glow de fondo dinámico */}
+      <div className="absolute -inset-px bg-gradient-to-br from-emerald-500/20 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
+      {/* Borde sutil esmeralda en el top al hacer hover */}
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+
       <CardHeader className="relative pb-3">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="font-serif text-xl font-semibold leading-tight text-balance">
+          <h3 className="font-serif text-xl font-semibold leading-tight text-balance group-hover:text-emerald-400 transition-colors duration-300">
             {title}
           </h3>
           {status === "in-progress" && (
-            <Badge variant="secondary" className="shrink-0 text-xs">
+            <Badge variant="secondary" className="shrink-0 text-[10px] bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
               In Progress
             </Badge>
           )}
         </div>
         
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="flex flex-wrap gap-2 pt-3">
             {tags.map((tag) => (
-              <Badge key={tag} variant="outline" className="text-xs font-normal">
+              <Badge 
+                key={tag} 
+                variant="outline" 
+                className="text-[10px] font-bold uppercase tracking-wider bg-emerald-500/5 border-emerald-500/20 text-emerald-500/80 group-hover:border-emerald-500/40 group-hover:text-emerald-400 transition-all"
+              >
                 {tag}
               </Badge>
             ))}
@@ -55,25 +63,25 @@ export function ProjectCard({
         )}
       </CardHeader>
 
-      <CardContent className="relative space-y-4">
-        <p className="text-sm text-muted-foreground leading-relaxed">
+      <CardContent className="relative space-y-4 pt-2">
+        <p className="text-sm text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
           {description}
         </p>
 
         {latex && (
-          <div className="py-2 px-3 bg-secondary/50 rounded-md overflow-x-auto">
+          <div className="py-3 px-4 bg-emerald-500/5 rounded-lg border border-emerald-500/10 overflow-x-auto">
             <LaTeX display>{latex}</LaTeX>
           </div>
         )}
 
         {insight && (
-          <div className="flex gap-3 py-3 px-4 bg-secondary/30 rounded-lg border border-border/40">
-            <Lightbulb className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+          <div className="flex gap-3 py-3 px-4 bg-purple-500/5 rounded-lg border border-purple-500/10 group-hover:border-purple-500/20 transition-all">
+            <Lightbulb className="h-4 w-4 text-purple-400 shrink-0 mt-0.5" />
             <div>
-              <p className="text-xs font-medium text-muted-foreground mb-1">
-                Key Insight
+              <p className="text-[10px] font-bold text-purple-400/70 uppercase tracking-widest mb-1">
+                Deep Tech Insight
               </p>
-              <p className="text-sm text-foreground leading-relaxed">
+              <p className="text-xs text-zinc-400 leading-relaxed">
                 {insight}
               </p>
             </div>
@@ -81,38 +89,17 @@ export function ProjectCard({
         )}
 
         {(slidesUrl || videoUrl || pdfUrl) && (
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="flex flex-wrap gap-4 pt-2">
             {pdfUrl && (
-              <a
-                href={pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <FileText className="h-4 w-4" />
-                <span>PDF</span>
+              <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-zinc-500 hover:text-emerald-400 transition-colors">
+                <FileText className="h-3.5 w-3.5" />
+                <span>PDF REPORT</span>
               </a>
             )}
             {slidesUrl && (
-              <a
-                href={slidesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <ExternalLink className="h-4 w-4" />
-                <span>Slides</span>
-              </a>
-            )}
-            {videoUrl && (
-              <a
-                href={videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Play className="h-4 w-4" />
-                <span>Video</span>
+              <a href={slidesUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-zinc-500 hover:text-emerald-400 transition-colors">
+                <ExternalLink className="h-3.5 w-3.5" />
+                <span>TECHNICAL SLIDES</span>
               </a>
             )}
           </div>

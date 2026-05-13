@@ -9,8 +9,8 @@ import { Button } from "@/components/ui/button"
 // Actualizamos los hrefs para que apunten a las carpetas reales
 const navItems = [
   { href: "/concurrent", label: "Concurrent" },
-  { href: "/probabilistic", label: "Probabilistic" },
-  { href: "/stochastic", label: "Stochastic" },
+  { href: "/probabilistic", label: "Probability" },
+  { href: "/dataScience", label: "Data Science" },
 ]
 
 export function Navigation() {
