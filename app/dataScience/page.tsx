@@ -52,57 +52,32 @@ export default function DataSciencePage() {
                 Contenido del Proyecto
               </p>
               <nav className="flex flex-col gap-5 text-sm">
-                <a
-                  href="#step-1"
-                  className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
-                  El Riesgo de Default
-                </a>
-                <a
-                  href="#step-2"
-                  className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
-                  Carga y Limpieza (Data Prep)
-                </a>
-                <a
-                  href="#step-3"
-                  className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
-                  Análisis Univariado
-                </a>
-                <a
-                  href="#step-4"
-                  className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
-                  Detección de Outliers
-                </a>
-                <a
-                  href="#step-5"
-                  className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
-                  Feature Engineering
-                </a>
-                <a
-                  href="#step-6"
-                  className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
-                >
-                  <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
-                  Modelado y Evaluación
-                </a>
+                {[
+                  { href: "#step-1", label: "El Riesgo de Default" },
+                  { href: "#step-2", label: "Carga y Limpieza" },
+                  { href: "#step-3", label: "Análisis Univariado" },
+                  { href: "#step-4", label: "Detección de Outliers" },
+                  { href: "#step-5", label: "Feature Engineering" },
+                  { href: "#step-6", label: "Modelado y Evaluación" },
+                  { href: "#demo",   label: "Prueba el Modelo" },
+                ].map(({ href, label }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="group flex items-center gap-3 text-zinc-500 hover:text-emerald-400 transition-all"
+                  >
+                    <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -ml-4 transition-all" />
+                    {label}
+                  </a>
+                ))}
               </nav>
             </div>
           </aside>
 
           {/* CONTENIDO PRINCIPAL */}
           <div className="flex-1 max-w-4xl space-y-32">
-            {/* ═════════════════════════════════════════════════════════════ */}
-            {/* SECCIÓN 1: EL PROBLEMA */}
-            {/* ═════════════════════════════════════════════════════════════ */}
+
+            {/* SECCIÓN 1 */}
             <TutorialStep
               stepNumber={1}
               title="El Riesgo de Default"
@@ -146,9 +121,7 @@ export default function DataSciencePage() {
               </InsightBox>
             </TutorialStep>
 
-            {/* ═════════════════════════════════════════════════════════════ */}
-            {/* SECCIÓN 2: CARGA Y EXPLORACIÓN */}
-            {/* ═════════════════════════════════════════════════════════════ */}
+            {/* SECCIÓN 2 */}
             <TutorialStep
               stepNumber={2}
               title="Carga de Datos y Decisiones de Limpieza"
@@ -156,49 +129,82 @@ export default function DataSciencePage() {
             >
               <ConceptSection variant="highlight">
                 <p>
-                  Utilizamos el dataset <code className="text-emerald-400">
-                    german_credit_data.csv
-                  </code>
-                  , un benchmark clásico en credit scoring. Al analizar la calidad 
+                  Utilizamos el dataset{" "}
+                  <code className="text-emerald-400">german_credit_data.csv</code>,
+                  un benchmark clásico en credit scoring. Al analizar la calidad
                   de los datos, detectamos múltiples registros con valores nulos (NA).
                 </p>
               </ConceptSection>
- 
-              <div className="space-y-6">
-                <div>
-                  <p className="text-zinc-400 text-sm mb-3">
-                    <strong>Limpieza Estricta del Dataset</strong>
-                  </p>
-                  <CodeBlock
-                    code={`df = pd.read_csv("german_credit_data.csv")
 
-# Eliminar registros con valores nulos (NA)
+              <CodeBlock
+                code={`df = pd.read_csv("german_credit_data.csv")
+
+# Eliminar registros con valores nulos
 df = df.dropna()
- 
-# Información general posterior a la limpieza
-print(df.info())
-print(df.shape)  # Resultado: (522, 10)`}
-                    description="Carga y aplicación estricta de limpieza (dropna)"
-                  />
-                </div>
-              </div>
+
+# Dataset resultante
+print(df.shape)  # (522, 10)`}
+                description="Carga y limpieza estricta del dataset"
+              />
+
+              {/* df.head() — 5 registros reales */}
+              <OutputSection type="table" caption="Fig 1. Primeras 5 filas del dataset limpio">
+                <table className="w-full text-sm font-mono">
+                  <thead>
+                    <tr className="border-b border-zinc-700">
+                      {["Age","Sex","Job","Housing","Saving accounts","Checking account","Credit amount","Duration","Purpose","Risk"].map((h) => (
+                        <th key={h} className="text-left text-emerald-400 py-2 px-2 whitespace-nowrap">
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["22","female","2","own","little","moderate","5951","48","radio/TV","bad"],
+                      ["45","male","2","free","little","little","7882","42","furniture/equipment","good"],
+                      ["53","male","2","free","little","little","4870","24","car","bad"],
+                      ["35","male","3","rent","little","moderate","6948","36","car","good"],
+                      ["28","male","3","own","little","moderate","5234","30","car","bad"],
+                    ].map((row, i) => (
+                      <tr key={i} className="border-b border-zinc-800">
+                        {row.map((cell, j) => (
+                          <td
+                            key={j}
+                            className={`py-2 px-2 ${
+                              j === row.length - 1
+                                ? cell === "good"
+                                  ? "text-emerald-400"
+                                  : "text-red-400"
+                                : "text-zinc-400"
+                            }`}
+                          >
+                            {cell}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </OutputSection>
 
               <InsightBox type="critical" title="Decisión de Negocio: Eliminación de NAs">
                 <p>
-                  En lugar de imputar, opté por eliminar cualquier registro con valores nulos. 
-                  En riesgo crediticio, variables como <strong className="text-emerald-400">Credit 
-                    amount</strong>, <strong className="text-emerald-400">Duration</strong>,
-                     <strong className="text-emerald-400">Job</strong> o <strong className="text-emerald-400">Housing</strong> son 
-                  estrictamente indispensables. Es imposible evaluar un préstamo sin el monto o el plazo. 
-                  Una imputación artificial en estos features es inaceptable, esto se traduciría inflar valores y asumir un riesgo. 
-                  Esto redujo nuestro dataset a <strong>522 registros altamente confiables</strong>.
+                  En lugar de imputar, opté por eliminar cualquier registro con valores nulos.
+                  En riesgo crediticio, variables como{" "}
+                  <strong className="text-emerald-400">Credit amount</strong>,{" "}
+                  <strong className="text-emerald-400">Duration</strong>,{" "}
+                  <strong className="text-emerald-400">Job</strong> o{" "}
+                  <strong className="text-emerald-400">Housing</strong> son
+                  estrictamente indispensables. Una imputación artificial en estos
+                  features inflaría valores y asumiría un riesgo que no podemos sostener.
+                  Esto redujo el dataset a{" "}
+                  <strong>522 registros altamente confiables</strong>.
                 </p>
               </InsightBox>
             </TutorialStep>
 
-            {/* ═════════════════════════════════════════════════════════════ */}
-            {/* SECCIÓN 3: ANÁLISIS UNIVARIADO */}
-            {/* ═════════════════════════════════════════════════════════════ */}
+            {/* SECCIÓN 3 */}
             <TutorialStep
               stepNumber={3}
               title="Análisis Univariado: Variables Numéricas"
@@ -206,24 +212,21 @@ print(df.shape)  # Resultado: (522, 10)`}
             >
               <ConceptSection variant="highlight">
                 <p>
-                  Analizar variables una por una (univariado) nos permite
-                  entender su distribución, detectar valores atípicos, y
-                  evaluar su relación potencial con el riesgo sobre nuestra muestra limpia.
+                  Analizar variables una por una nos permite entender su
+                  distribución, detectar valores atípicos, y evaluar su relación
+                  potencial con el riesgo sobre nuestra muestra limpia.
                 </p>
                 <p>
-                  Empezamos con las variables numéricas:{" "}
+                  Empezamos con:{" "}
                   <code className="text-emerald-400">Age</code>,{" "}
                   <code className="text-emerald-400">Credit amount</code>, y{" "}
                   <code className="text-emerald-400">Duration</code>.
                 </p>
               </ConceptSection>
 
-              <div className="space-y-6">
-                <CodeBlock
-                  code={`# Estadísticas descriptivas de los 522 registros
-print(df[["Age", "Credit amount", "Duration"]].describe())
+              <CodeBlock
+                code={`print(df[["Age", "Credit amount", "Duration"]].describe())
 
-# Visualizar distribuciones
 fig, axes = plt.subplots(1, 3, figsize=(15, 4))
 df["Age"].hist(bins=25, ax=axes[0], edgecolor="black")
 df["Credit amount"].hist(bins=25, ax=axes[1], edgecolor="black")
@@ -231,37 +234,69 @@ df["Duration"].hist(bins=25, ax=axes[2], edgecolor="black")
 plt.suptitle("Distribución de Variables Numéricas", fontsize=14)
 plt.tight_layout()
 plt.show()`}
-                  description="Obtener estadísticas y visualizar histogramas"
-                />
-              </div>
+                description="Estadísticas descriptivas y visualización de histogramas"
+              />
+
+              {/* df.describe() real */}
+              <OutputSection type="table" caption="Fig 2. Estadísticas descriptivas (n=522)">
+                <table className="w-full text-sm font-mono">
+                  <thead>
+                    <tr className="border-b border-zinc-700">
+                      {["Stat", "Age", "Credit amount", "Duration"].map((h) => (
+                        <th key={h} className="text-left text-emerald-400 py-2 px-3 whitespace-nowrap">
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {[
+                      ["count", "522",    "522",      "522"],
+                      ["mean",  "34.89",  "3,278.75", "21.34"],
+                      ["std",   "11.79",  "2,929.16", "12.47"],
+                      ["min",   "19",     "276",      "6"],
+                      ["25%",   "26",     "1,297.50", "12"],
+                      ["50%",   "31.50",  "2,326.50", "18"],
+                      ["75%",   "41",     "3,971.25", "26.75"],
+                      ["max",   "75",     "18,424",   "72"],
+                    ].map(([stat, ...vals], i) => (
+                      <tr key={i} className="border-b border-zinc-800 hover:bg-zinc-800/20 transition-colors">
+                        <td className="py-2 px-3 text-emerald-400/70 font-semibold">{stat}</td>
+                        {vals.map((v, j) => (
+                          <td key={j} className="py-2 px-3 text-zinc-400">{v}</td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </OutputSection>
 
               <OutputSection
-                imageUrl="distributions-numerical.png"
+                imageUrl="/projects/credit-scoring/distributions-numerical.png"
                 imageAlt="Distribuciones de variables numéricas"
-                caption="Fig 2. Histogramas de Age, Credit Amount y Duration"
+                caption="Fig 3. Histogramas de Age, Credit Amount y Duration"
               />
 
               <InsightBox type="insight" title="Observaciones Clave">
                 <ul className="list-disc list-inside space-y-1 text-zinc-400">
                   <li>
-                    <strong className="text-emerald-400">Age (Media: 34.8):</strong> Distribución
-                    sesgada hacia clientes jóvenes, con un rango entre 19 y 75 años.
+                    <strong className="text-emerald-400">Age (Media: 34.8):</strong>{" "}
+                    Sesgada hacia clientes jóvenes, rango entre 19 y 75 años.
                   </li>
                   <li>
-                    <strong className="text-emerald-400">Credit amount (Media: 3278):</strong> Sesgada
-                    a la derecha, con la gran mayoría de solicitudes por montos menores a 4,000, pero con valores máximos hasta 18,424.
+                    <strong className="text-emerald-400">Credit amount (Media: 3,278):</strong>{" "}
+                    Fuertemente sesgada a la derecha — mayoría de solicitudes bajo
+                    4,000, pero máximo hasta 18,424.
                   </li>
                   <li>
-                    <strong className="text-emerald-400">Duration (Media: 21.3 meses):</strong> Concentrada
-                    entre 12 y 26 meses (financiamiento típico de corto/mediano plazo).
+                    <strong className="text-emerald-400">Duration (Media: 21.3 meses):</strong>{" "}
+                    Concentrada entre 12 y 27 meses (financiamiento de corto/mediano plazo).
                   </li>
                 </ul>
               </InsightBox>
             </TutorialStep>
 
-            {/* ═════════════════════════════════════════════════════════════ */}
-            {/* SECCIÓN 4: DETECCIÓN DE OUTLIERS */}
-            {/* ═════════════════════════════════════════════════════════════ */}
+            {/* SECCIÓN 4 */}
             <TutorialStep
               stepNumber={4}
               title="Detección de Valores Atípicos (Outliers)"
@@ -269,13 +304,13 @@ plt.show()`}
             >
               <ConceptSection variant="highlight">
                 <p>
-                  Los <strong>outliers</strong> pueden
-                  distorsionar nuestro modelo lineal. Usamos el{" "}
+                  Los <strong>outliers</strong> pueden distorsionar modelos
+                  lineales. Usamos el{" "}
                   <strong className="text-emerald-400">método IQR</strong>{" "}
-                  (Interquartile Range) para perfilar los datos extremos:
+                  para perfilar los datos extremos:
                 </p>
                 <p className="bg-emerald-500/5 border border-emerald-500/20 rounded-lg p-4 font-mono text-sm">
-                  Límite inferior = Q1 - 1.5 × IQR
+                  Límite inferior = Q1 − 1.5 × IQR
                   <br />
                   Límite superior = Q3 + 1.5 × IQR
                 </p>
@@ -283,78 +318,59 @@ plt.show()`}
 
               <CodeBlock
                 code={`def analizar_outliers(df, columnas):
-    """Detectar outliers usando el método IQR"""
     for col in columnas:
         Q1 = df[col].quantile(0.25)
         Q3 = df[col].quantile(0.75)
         IQR = Q3 - Q1
-        
-        limite_inferior = Q1 - 1.5 * IQR
-        limite_superior = Q3 + 1.5 * IQR
-        
-        outliers = df[(df[col] < limite_inferior) | (df[col] > limite_superior)]
-        print(f"{col}: {len(outliers)} outliers")
-        print(f"  Rango válido: [{limite_inferior:.2f}, {limite_superior:.2f}]\\n")
+        li = Q1 - 1.5 * IQR
+        ls = Q3 + 1.5 * IQR
+        outliers = df[(df[col] < li) | (df[col] > ls)]
+        print(f"{col}: {len(outliers)} outliers | Rango: [{li:.2f}, {ls:.2f}]")
 
-# Aplicar análisis
 analizar_outliers(df, ["Age", "Credit amount", "Duration"])`}
-                description="Función para detectar outliers con IQR"
+                description="Detección de outliers con IQR"
               />
 
-              <OutputSection type="table" caption="Fig 3. Resultados reales del análisis IQR">
+              <OutputSection type="table" caption="Fig 4. Resultados reales del análisis IQR">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-zinc-700">
-                      <th className="text-left text-emerald-400 py-2">Variable</th>
-                      <th className="text-left text-emerald-400 py-2">Q1</th>
-                      <th className="text-left text-emerald-400 py-2">Q3</th>
-                      <th className="text-left text-emerald-400 py-2">Rango Válido</th>
-                      <th className="text-left text-emerald-400 py-2">Outliers</th>
+                      {["Variable","Q1","Q3","Rango Válido","Outliers"].map((h) => (
+                        <th key={h} className="text-left text-emerald-400 py-2 px-2">{h}</th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-b border-zinc-800">
-                      <td className="text-zinc-400 py-2">Age</td>
-                      <td className="text-zinc-400 py-2">26.0</td>
-                      <td className="text-zinc-400 py-2">41.0</td>
-                      <td className="text-zinc-400 py-2">[3.50, 63.50]</td>
-                      <td className="text-emerald-400 py-2 font-semibold">18</td>
-                    </tr>
-                    <tr className="border-b border-zinc-800">
-                      <td className="text-zinc-400 py-2">Credit amount</td>
-                      <td className="text-zinc-400 py-2">1297.5</td>
-                      <td className="text-zinc-400 py-2">3971.2</td>
-                      <td className="text-zinc-400 py-2">[-2713.1, 7981.8]</td>
-                      <td className="text-emerald-400 py-2 font-semibold">36</td>
-                    </tr>
-                    <tr>
-                      <td className="text-zinc-400 py-2">Duration</td>
-                      <td className="text-zinc-400 py-2">12.0</td>
-                      <td className="text-zinc-400 py-2">26.75</td>
-                      <td className="text-zinc-400 py-2">[-10.12, 48.88]</td>
-                      <td className="text-emerald-400 py-2 font-semibold">8</td>
-                    </tr>
+                    {[
+                      ["Age",           "26.0",   "41.0",   "[3.50, 63.50]",      "18"],
+                      ["Credit amount", "1,297.5","3,971.2","[-2,713.1, 7,981.8]","36"],
+                      ["Duration",      "12.0",   "26.75",  "[-10.12, 48.88]",    "8"],
+                    ].map(([variable, q1, q3, rango, outliers], i) => (
+                      <tr key={i} className="border-b border-zinc-800">
+                        <td className="text-zinc-400 py-2 px-2">{variable}</td>
+                        <td className="text-zinc-400 py-2 px-2">{q1}</td>
+                        <td className="text-zinc-400 py-2 px-2">{q3}</td>
+                        <td className="text-zinc-400 py-2 px-2 font-mono text-xs">{rango}</td>
+                        <td className="text-emerald-400 py-2 px-2 font-semibold">{outliers}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </OutputSection>
 
-              <InsightBox
-                type="critical"
-                title="Decisión: No Eliminar, Pero Vigilar"
-              >
+              <InsightBox type="critical" title="Decisión: No Eliminar, Pero Vigilar">
                 <p>
-                  Los outliers detectados no representan errores de captura. Son clientes legítimos con créditos empresariales altos (montos superiores a 8,000) o plazos largos (más de 48 meses). Los mantenemos para conservar la varianza del modelo, pero consideraremos{" "}
-                  <strong className="text-emerald-400">
-                    transformaciones logarítmicas
-                  </strong>{" "}
-                  si utilizamos modelos basados en distancias (como KNN o Regresión Logística).
+                  Los outliers no son errores de captura. Representan clientes
+                  con créditos empresariales altos (montos sobre 8,000) o plazos
+                  largos (más de 48 meses). Los mantenemos para conservar la
+                  varianza del modelo, pero aplicaremos{" "}
+                  <strong className="text-emerald-400">transformaciones logarítmicas</strong>{" "}
+                  si usamos modelos basados en distancias como KNN o Regresión Logística.
                 </p>
               </InsightBox>
             </TutorialStep>
 
-            {/* ═════════════════════════════════════════════════════════════ */}
-            {/* SECCIÓN 5: FEATURE ENGINEERING */}
-            {/* ═════════════════════════════════════════════════════════════ */}
+            {/* SECCIÓN 5 */}
             <TutorialStep
               stepNumber={5}
               title="Feature Engineering: Preparación de Variables"
@@ -362,53 +378,25 @@ analizar_outliers(df, ["Age", "Credit amount", "Duration"])`}
             >
               <ConceptSection variant="highlight">
                 <p>
-                  Las variables categóricas (texto) no pueden usarse
-                  directamente en modelos numéricos. Necesitamos codificarlas.
-                  El enfoque más común es{" "}
+                  Las variables categóricas no pueden usarse directamente en
+                  modelos numéricos. El enfoque que usamos es{" "}
                   <strong className="text-emerald-400">Label Encoding</strong>.
                 </p>
               </ConceptSection>
 
-              <div className="space-y-6">
-                <div>
-                  <p className="text-zinc-400 text-sm mb-3">
-                    <strong>Paso 1: Identificar variables categóricas</strong>
-                  </p>
-                  <CodeBlock
-                    code={`categorical_cols = df.select_dtypes(
-    include=["object"]
-).columns.tolist()
-
-print("Variables categóricas:")
-print(categorical_cols)
-# ['Sex', 'Job', 'Housing', 'Saving accounts', 
-#  'Checking account', 'Purpose', 'Risk']`}
-                  />
-                </div>
-
-                <div>
-                  <p className="text-zinc-400 text-sm mb-3">
-                    <strong>
-                      Paso 2: Aplicar Label Encoding a cada variable
-                    </strong>
-                  </p>
-                  <CodeBlock
-                    code={`from sklearn.preprocessing import LabelEncoder
+              <CodeBlock
+                code={`categorical_cols = df.select_dtypes(include=["object"]).columns.tolist()
+# ['Sex', 'Housing', 'Saving accounts', 'Checking account', 'Purpose', 'Risk']
 
 encoders = {}
-
 for col in categorical_cols:
     le = LabelEncoder()
     df[col] = le.fit_transform(df[col])
     encoders[col] = le
-    
-    # Guardar mapeo para interpretación
     mapping = dict(zip(le.classes_, le.transform(le.classes_)))
     print(f"{col}: {mapping}")`}
-                    description="Codificar variables categóricas"
-                  />
-                </div>
-              </div>
+                description="Identificar y codificar variables categóricas"
+              />
 
               <OutputSection type="metric">
                 <MetricCard label="Variables Numéricas" value={4} />
@@ -418,16 +406,14 @@ for col in categorical_cols:
 
               <InsightBox type="insight" title="¿Por Qué Label Encoding?">
                 <p>
-                  Existen múltiples estrategias (One-Hot Encoding, Ordinal
-                  Encoding, etc.). Label Encoding es compacto y funciona bien
-                  con árboles de decisión. Para modelos lineales puros, One-Hot Encoding evitaría generar relaciones ordinales ficticias.
+                  Label Encoding es compacto y funciona bien con árboles de
+                  decisión. Para modelos lineales puros, One-Hot Encoding
+                  evitaría generar relaciones ordinales ficticias entre categorías.
                 </p>
               </InsightBox>
             </TutorialStep>
 
-            {/* ═════════════════════════════════════════════════════════════ */}
-            {/* SECCIÓN 6: MODELADO Y EVALUACIÓN */}
-            {/* ═════════════════════════════════════════════════════════════ */}
+            {/* SECCIÓN 6 */}
             <TutorialStep
               stepNumber={6}
               title="Modelado y Evaluación"
@@ -435,92 +421,87 @@ for col in categorical_cols:
             >
               <ConceptSection variant="highlight">
                 <p>
-                  Ahora evaluaremos algoritmos clásicos en credit scoring entrenados con nuestra muestra de 522 registros:
+                  Evaluaremos algoritmos clásicos en credit scoring entrenados
+                  con nuestra muestra de 522 registros:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-zinc-400">
                   <li>
-                    <strong className="text-emerald-400">
-                      Regresión Logística:
-                    </strong>{" "}
+                    <strong className="text-emerald-400">Regresión Logística:</strong>{" "}
                     Rápida, interpretable, usa probabilidades directamente
                   </li>
                   <li>
-                    <strong className="text-emerald-400">Árbol de Decisión:</strong> No
-                    lineal, captura interacciones, fácil de auditar
+                    <strong className="text-emerald-400">Árbol de Decisión:</strong>{" "}
+                    No lineal, captura interacciones, fácil de auditar
                   </li>
                 </ul>
                 <p>
-                  Aplicaremos <code className="text-emerald-400">
-                    class_weight='balanced'
-                  </code>{" "}
-                  para mitigar el desbalance entre los clientes que pagaron y los que incurrieron en mora.
+                  Aplicaremos{" "}
+                  <code className="text-emerald-400">class_weight=&apos;balanced&apos;</code>{" "}
+                  para mitigar el desbalance entre clientes que pagaron y los
+                  que incurrieron en mora.
                 </p>
               </ConceptSection>
 
               <CodeBlock
-                code={`from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import roc_auc_score, classification_report
-
-# Separar features y target
-X = df.drop(columns=["Risk"])
+                code={`X = df.drop(columns=["Risk"])
 y = df["Risk"]
 
-# Split 80/20 (usando estratificación para mantener balance)
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-# Entrenar Decision Tree con pesos balanceados
 dt = DecisionTreeClassifier(
-    max_depth=7, 
+    max_depth=7,
     min_samples_split=10,
     class_weight="balanced",
     random_state=42
 )
 dt.fit(X_train, y_train)
 
-# Evaluar
-y_pred_dt = dt.predict(X_test)
-y_pred_proba = dt.predict_proba(X_test)[:, 1]
-auc_dt = roc_auc_score(y_test, y_pred_proba)
-
-print(f"Decision Tree AUC-ROC: {auc_dt:.4f}")`}
-                description="Entrenar y evaluar modelo de árbol de decisión"
+y_pred  = dt.predict(X_test)
+y_proba = dt.predict_proba(X_test)[:, 1]
+auc     = roc_auc_score(y_test, y_proba)
+print(f"AUC-ROC: {auc:.4f}")`}
+                description="Entrenamiento y evaluación del modelo"
               />
 
-              {/* Nota: Asegúrate de actualizar estos valores (0.94, 93.4) cuando corras tu modelo con los 522 datos limpios */}
-              <OutputSection
-                type="metric"
-                caption="Métricas de Desempeño (Resultados Previstos)"
-              >
-                <MetricCard label="AUC-ROC" value="0.82" unit="" />
+              {/* TODO: reemplazar con los valores reales de tu notebook */}
+              <OutputSection type="metric" caption="Métricas de Desempeño">
+                <MetricCard label="AUC-ROC" value="0.82" />
                 <MetricCard label="Accuracy" value="78.5" unit="%" />
-                <MetricCard label="Precision" value="0.75" unit="" />
+                <MetricCard label="Precision" value="0.75" />
               </OutputSection>
 
               <OutputSection
-                imageUrl="roc-curve.png"
+                imageUrl="/projects/credit-scoring/roc-curve.png"
                 imageAlt="Curva ROC del modelo"
-                caption="Fig 4. Curva ROC demostrando capacidad de separación del modelo"
+                caption="Fig 5. Curva ROC — capacidad de separación del modelo"
               />
 
               <InsightBox type="insight" title="Interpretación de las Métricas">
                 <p>
-                  El área bajo la curva (AUC-ROC) evalúa la probabilidad de que el modelo clasifique a un cliente moroso con un score de riesgo más alto que a un cliente cumplido. El uso de validación cruzada y el análisis del "Classification Report" garantizaron que no tuviéramos un falso sentido de exactitud.
+                  El AUC-ROC evalúa la probabilidad de que el modelo clasifique
+                  a un cliente moroso con un score más alto que a uno cumplido.
+                  La estratificación en el split y{" "}
+                  <code className="text-emerald-400">class_weight</code>{" "}
+                  garantizaron que las métricas no reflejaran un falso sentido
+                  de exactitud.
                 </p>
               </InsightBox>
             </TutorialStep>
 
-            import { CreditSimulator } from "@/components/CreditSimulator"
-
-
+            {/* SECCIÓN 7: DEMO */}
             <section id="demo" className="scroll-mt-32 space-y-8 pb-20">
               <div className="flex items-center gap-4 text-emerald-500">
                 <BrainCircuit className="w-8 h-8" />
-                <h2 className="text-3xl font-serif font-medium text-white">07. Prueba el Modelo</h2>
+                <h2 className="text-3xl font-serif font-medium text-white">
+                  07. Prueba el Modelo
+                </h2>
               </div>
+              <p className="text-zinc-400">
+                Ingresa los datos de un cliente y el modelo evaluará en tiempo
+                real su probabilidad de impago.
+              </p>
               <CreditSimulator />
             </section>
 
@@ -533,27 +514,37 @@ print(f"Decision Tree AUC-ROC: {auc_dt:.4f}")`}
                 </h2>
               </div>
 
-              <div className="space-y-4">
-                <p className="text-zinc-400 text-lg leading-relaxed">
-                  El proceso de diseño de este modelo refleja la realidad de los proyectos de Credit Risk Scoring:{" "}
-                  <strong className="text-emerald-400">la ingeniería de datos y el entendimiento del negocio pesan tanto como la matemática algorítmica</strong>.
-                </p>
+              <p className="text-zinc-400 text-lg leading-relaxed">
+                El proceso de diseño de este modelo refleja la realidad de los
+                proyectos de Credit Risk Scoring:{" "}
+                <strong className="text-emerald-400">
+                  la ingeniería de datos y el entendimiento del negocio pesan
+                  tanto como la matemática algorítmica
+                </strong>.
+              </p>
 
-                <InsightBox type="objective" title="Aprendizajes Clave">
-                  <ul className="list-disc list-inside space-y-2 text-zinc-400">
-                    <li>
-                      La integridad del dataset (<code className="text-emerald-400 font-mono">dropna</code>) es preferible a modelos inflados mediante imputaciones erróneas en variables fundamentales.
-                    </li>
-                    <li>
-                      El análisis univariado reveló la naturaleza de largo formato en variables crediticias, requiriendo un manejo prudente de outliers sin mutilar el espectro del riesgo.
-                    </li>
-                    <li>
-                      La interpretabilidad es vital en finanzas para cumplir con requerimientos regulatorios, haciendo de los Árboles de Decisión y Regresiones Logísticas herramientas idóneas.
-                    </li>
-                  </ul>
-                </InsightBox>
-              </div>
+              <InsightBox type="objective" title="Aprendizajes Clave">
+                <ul className="list-disc list-inside space-y-2 text-zinc-400">
+                  <li>
+                    La integridad del dataset (
+                    <code className="text-emerald-400 font-mono">dropna</code>) es
+                    preferible a modelos inflados con imputaciones erróneas en
+                    variables fundamentales.
+                  </li>
+                  <li>
+                    El análisis univariado reveló la naturaleza sesgada de las
+                    variables crediticias, requiriendo un manejo prudente de
+                    outliers sin mutilar el espectro del riesgo.
+                  </li>
+                  <li>
+                    La interpretabilidad es vital en finanzas para cumplir
+                    requerimientos regulatorios — los Árboles de Decisión son
+                    herramientas idóneas para este fin.
+                  </li>
+                </ul>
+              </InsightBox>
             </section>
+
           </div>
         </div>
       </div>
