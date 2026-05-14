@@ -426,12 +426,12 @@ for col in categorical_cols:
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-zinc-400">
                   <li>
-                    <strong className="text-emerald-400">Regresión Logística:</strong>{" "}
-                    Rápida, interpretable, usa probabilidades directamente
+                    <strong className="text-emerald-400">Random Forest:</strong>{" "}
+                    Elegido por su robustez contra el sobreajuste (overfitting) y su capacidad para capturar interacciones complejas entre múltiples variables financieras.
                   </li>
                   <li>
-                    <strong className="text-emerald-400">Árbol de Decisión:</strong>{" "}
-                    No lineal, captura interacciones, fácil de auditar
+                    <strong className="text-emerald-400">Árbol de Decisión Simple:</strong>{" "}
+                    Probado inicialmente, pero descartado porque generaba reglas demasiado rígidas y no aprovechaba todas las variables disponibles.
                   </li>
                 </ul>
                 <p>
@@ -450,16 +450,17 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
 
-dt = DecisionTreeClassifier(
-    max_depth=7,
+rf = RandomForestClassifier(
+    n_estimators=100,
+    max_depth=10,
     min_samples_split=10,
     class_weight="balanced",
     random_state=42
 )
-dt.fit(X_train, y_train)
+rf.fit(X_train, y_train)
 
-y_pred  = dt.predict(X_test)
-y_proba = dt.predict_proba(X_test)[:, 1]
+y_pred  = rf.predict(X_test)
+y_proba = rf.predict_proba(X_test)[:, 1]
 auc     = roc_auc_score(y_test, y_proba)
 print(f"AUC-ROC: {auc:.4f}")`}
                 description="Entrenamiento y evaluación del modelo"
@@ -467,9 +468,9 @@ print(f"AUC-ROC: {auc:.4f}")`}
 
               {/* TODO: reemplazar con los valores reales de tu notebook */}
               <OutputSection type="metric" caption="Métricas de Desempeño">
-                <MetricCard label="AUC-ROC" value="0.82" />
-                <MetricCard label="Accuracy" value="78.5" unit="%" />
-                <MetricCard label="Precision" value="0.75" />
+                <MetricCard label="AUC-ROC" value="0.74" />
+                <MetricCard label="Accuracy" value="63.8" unit="%" />
+                <MetricCard label="Recall (Riesgo)" value="0.71" />
               </OutputSection>
 
               <OutputSection
