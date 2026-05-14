@@ -69,7 +69,7 @@ export function Hero() {
             </Button>
 
             <Button asChild variant="outline" className="px-6 border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/5">
-              <a href="/cv-christian-solis.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="https://drive.google.com/file/d/1XsgbCdVwvpdr5b_3QbbpEr0UxLwfLH6u/view?usp=sharing" target="_blank" rel="noopener noreferrer"> 
                 <FileText className="mr-2 h-4 w-4 text-emerald-500/70" />
                 Resume / CV
               </a>

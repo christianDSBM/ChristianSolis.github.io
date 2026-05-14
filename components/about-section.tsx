@@ -102,11 +102,11 @@ export function AboutSection() {
                   <Mail className="h-4 w-4 text-emerald-500" />
                   christian.soliscalderon@gmail.com
                 </a>
-                <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-emerald-400 transition-colors group">
+                <a href="https://github.com/christianDSBM" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-emerald-400 transition-colors group">
                   <Github className="h-4 w-4 text-emerald-500" />
-                  github.com/tu-usuario
+                  github.com/christianDSBM
                 </a>
-                <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-emerald-400 transition-colors group">
+                <a href="https://www.linkedin.com/in/christian-solís-b864a4374?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-emerald-400 transition-colors group">
                   <Linkedin className="h-4 w-4 text-emerald-500" />
                   LinkedIn Profile
                 </a>
