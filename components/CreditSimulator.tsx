@@ -29,6 +29,9 @@ interface PredictionResult {
 interface FormFields {
   Age: string
   Sex: string
+  Job: string
+  "Saving accounts": string
+  "Checking account": string
   "Credit amount": string
   Duration: string
   Housing: string
@@ -50,6 +53,12 @@ function validateFields(fields: FormFields): string | null {
     return "Please select a valid loan duration."
   if (!fields.Sex)
     return "Please select a gender."
+  if (!fields.Job)
+    return "Please select a job type."
+  if (!fields["Saving accounts"])
+    return "Please select a saving accounts type."
+  if (!fields["Checking account"])
+    return "Please select a checking account type."
   if (!fields.Housing)
     return "Please select a housing type."
   if (!fields.Purpose)
@@ -84,10 +93,10 @@ export function CreditSimulator() {
     const payload = {
       Age: parseInt(raw.Age, 10),
       Sex: raw.Sex,
-      Job: 2,
+      Job: parseInt(raw.Job, 10),
       Housing: raw.Housing,
-      "Saving accounts": "little",
-      "Checking account": "little",
+      "Saving accounts": raw["Saving accounts"],
+      "Checking account": raw["Checking account"],
       "Credit amount": parseInt(raw["Credit amount"], 10),
       Duration: parseInt(raw.Duration, 10),
       Purpose: raw.Purpose,
@@ -214,6 +223,53 @@ export function CreditSimulator() {
             </Select>
           </div>
 
+          {/* Job */}
+          <div className="space-y-2">
+            <Label className="text-zinc-300">Job Type</Label>
+            <Select name="Job" required>
+              <SelectTrigger className="bg-zinc-900 border-zinc-800">
+                <SelectValue placeholder="Select" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="0">Unskilled / Non-resident</SelectItem>
+                <SelectItem value="1">Unskilled / Resident</SelectItem>
+                <SelectItem value="2">Skilled</SelectItem>
+                <SelectItem value="3">Highly Skilled / Management</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Saving accounts */}
+          <div className="space-y-2">
+            <Label className="text-zinc-300">Saving Accounts</Label>
+            <Select name="Saving accounts" required>
+              <SelectTrigger className="bg-zinc-900 border-zinc-800">
+                <SelectValue placeholder="Select" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="little">Little</SelectItem>
+                <SelectItem value="moderate">Moderate</SelectItem>
+                <SelectItem value="quite rich">Quite Rich</SelectItem>
+                <SelectItem value="rich">Rich</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          {/* Checking account */}
+          <div className="space-y-2">
+            <Label className="text-zinc-300">Checking Account</Label>
+            <Select name="Checking account" required>
+              <SelectTrigger className="bg-zinc-900 border-zinc-800">
+                <SelectValue placeholder="Select" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="little">Little</SelectItem>
+                <SelectItem value="moderate">Moderate</SelectItem>
+                <SelectItem value="rich">Rich</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
           {/* Housing */}
           <div className="space-y-2">
             <Label className="text-zinc-300">Housing</Label>
@@ -244,6 +300,9 @@ export function CreditSimulator() {
                 </SelectItem>
                 <SelectItem value="business">Business</SelectItem>
                 <SelectItem value="education">Education</SelectItem>
+                <SelectItem value="domestic appliances">Domestic Appliances</SelectItem>
+                <SelectItem value="repairs">Repairs</SelectItem>
+                <SelectItem value="vacation/others">Vacation / Others</SelectItem>
               </SelectContent>
             </Select>
           </div>
