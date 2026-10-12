@@ -30,35 +30,59 @@ export function AboutSection() {
         <div className="grid gap-12 md:grid-cols-3 mt-8">
           <div className="md:col-span-2 space-y-7">
             {/* PÁRRAFO 1: IDENTIDAD Y ENFOQUE */}
-            <p className="text-lg leading-relaxed text-foreground">
-              I am a <span className="text-emerald-400 font-medium">Master's candidate in Computer Science and Engineering</span> and a <span className="text-emerald-400 font-medium">Mathematician</span> from Univversidad Nacional Autónoma de México (UNAM). 
-              My primary focus has been the search for strategies to <span className="text-emerald-400 font-medium">reduce algorithmic complexity</span>, a goal I have approached from different perspectives.
-            </p>
+ <div className="space-y-8">
+  {/* INTRODUCCIÓN GENERAL */}
+  <p className="text-lg leading-relaxed text-foreground">
+    I am a <span className="text-emerald-400 font-medium">Master&apos;s candidate in Computer Science and Engineering</span> and a <span className="text-emerald-400 font-medium">Mathematician</span> from the Universidad Nacional Autónoma de México (UNAM). Currently, I work as a <span className="text-emerald-400 font-medium">Software Developer at Accenture Mexico</span>, and as an academic instructor at the <span className="text-emerald-400 font-medium">Faculty of Sciences, UNAM</span>.
+  </p>
 
-            {/* PÁRRAFO 2: LA CONEXIÓN TÉCNICA */}
-            <p className="text-muted-foreground leading-relaxed">
-              Initially, I specialized in <span className="text-emerald-400 font-medium">concurrency</span> as a tool to optimize execution in distributed systems. 
-              Recently, I have expanded this analysis toward <span className="text-emerald-400 font-medium">randomization</span>, exploring how relaxing absolute 
-              certainty allows for gains in scalability and efficiency.
-            </p>
+  {/* SECCIÓN 1: ACADEMIA & INVESTIGACIÓN */}
+  <div className="space-y-3">
+    <div className="text-xs font-mono font-semibold tracking-wider text-emerald-400 uppercase">
+      // Academia & Research
+    </div>
+    <p className="text-muted-foreground leading-relaxed">
+      My academic journey centers on the pursuit of strategies to <span className="text-emerald-400 font-medium">reduce algorithmic complexity</span>, analyzing problems at the intersection of discrete mathematics and computing.
+    </p>
+    <p className="text-muted-foreground leading-relaxed">
+      Initially, I focused on <span className="text-emerald-400 font-medium">concurrency and distributed computing</span> to optimize coordination and execution in non-blocking systems. More recently, I have extended this work toward <span className="text-emerald-400 font-medium">randomization</span>—investigating how relaxing deterministic certainty unlocks substantial gains in scalability, fault tolerance, and computational efficiency.
+    </p>
+  </div>
 
-            {/* PÁRRAFO 3: TRANSICIÓN A IA Y DATA SCIENCE */}
-            <p className="text-muted-foreground leading-relaxed">
-              This same search for solutions to high-complexity problems led me to delve into <span className="text-emerald-400 font-medium">Artificial 
-                Intelligence</span>. I have found in AI and <span className="text-emerald-400 font-medium">Machine Learning</span> a third complementary 
-                approach, where using tools like <span className="text-emerald-400 font-medium">Pandas, Scikit-learn, and Matplotlib</span> allows me to 
-                materialize theoretical models into practical data analysis implementations.
-            </p>
+  {/* SECCIÓN 2: DESARROLLO & BIG DATA */}
+  <div className="space-y-3">
+    <div className="text-xs font-mono font-semibold tracking-wider text-emerald-400 uppercase">
+      // Engineering & Cloud
+    </div>
+    <p className="text-muted-foreground leading-relaxed">
+      In the industry, my core work revolves around <span className="text-emerald-400 font-medium">large-scale batch data processing</span>, building high-throughput pipelines with <span className="text-emerald-400 font-medium">Java and Apache Spark</span> managed via Maven. Operating within mission-critical Big Data environments has driven me to leverage <span className="text-emerald-400 font-medium">Docker</span> for containerization, <span className="text-emerald-400 font-medium">Kubernetes</span> for orchestration, and a mix of relational and NoSQL storage engines.
+    </p>
+    <p className="text-muted-foreground leading-relaxed">
+      Beyond daily enterprise workloads, I am deeply fascinated by architectural paradigms: tracing the historical evolution from <span className="text-foreground font-mono text-sm">On-Premises → VMs → Containers → Serverless</span>, and engineering event-driven architectures with FaaS/BaaS. Concurrently, I actively explore the emergence of <span className="text-emerald-400 font-medium">LLMs and agentic systems</span>, studying how foundation models can be orchestrated into autonomous, robust backend workflows.
+    </p>
+  </div>
 
-            {/* PÁRRAFO 4: NÚCLEO MATEMÁTICO Y DOCENCIA */}
-            <p className="text-muted-foreground leading-relaxed">
-              My background in <span className="text-emerald-400 font-medium">Probability, Stochastic Processes, and Statistics</span> acts as the core uniting these areas. Additionally, my <span className="text-emerald-400 font-medium">5-year tenure as a Teaching Assistant</span> at the Faculty of Sciences has been key to developing my ability to translate deep mathematical concepts into clear, accessible explanations.
-            </p>
+  {/* SECCIÓN 3: DOCENCIA */}
+  <div className="space-y-3">
+    <div className="text-xs font-mono font-semibold tracking-wider text-emerald-400 uppercase">
+      // Teaching
+    </div>
+    <p className="text-muted-foreground leading-relaxed">
+      With over <span className="text-emerald-400 font-medium">5 years of teaching tenure</span> at the Faculty of Sciences, I have instructed courses ranging from undergraduate foundations to graduate seminars. My teaching portfolio includes core mathematical pillars (<span className="text-foreground">Calculus, Linear Algebra, and Geometry</span>) as well as advanced computer science courses such as <span className="text-foreground">Concurrent Computing, Analysis and Design of Algorithms, and Randomized Algorithms</span>.
+    </p>
+    <p className="text-muted-foreground leading-relaxed">
+      I currently teach <span className="text-emerald-400 font-medium">Probability</span>, actively fostering my ongoing research in <span className="text-emerald-400 font-medium">stochastic processes, statistics, and stochastic calculus</span>. Teaching remains my strongest tool for distilling abstract theory into clear, first-principles implementations.
+    </p>
+  </div>
 
-            {/* CALL TO ACTION PROFESIONAL */}
-            <p className="text-muted-foreground leading-relaxed italic border-l-2 border-emerald-500/30 pl-4 py-1">
-              Currently transitioning to the industry, seeking challenges in Data Science roles where technical rigor is the standard.
-            </p>
+  {/* CALL TO ACTION PROFESIONAL */}
+  <div className="border-l-2 border-emerald-500/40 pl-4 py-1.5 my-4">
+    <p className="text-muted-foreground leading-relaxed italic text-sm">
+      Bridging rigorous mathematical foundations with enterprise-grade cloud and distributed systems.
+    </p>
+  </div>
+</div>
+
 
             {/* CORE EXPERTISE TAGS */}
             <div className="pt-4">
