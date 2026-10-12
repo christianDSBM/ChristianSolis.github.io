@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 
 const endpoint =
   "https://ua2ykewrdp3mlfxjeyqntk7wjm0flzdn.lambda-url.us-east-1.on.aws/"
-const presets = [1_000, 10_000, 50_000, 100_000, 500_000]
+const presets = [50, 100, 500, 1_000, 10_000, 100_000]
 
 interface StrategyResult {
   victorias: number
