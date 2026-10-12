@@ -47,6 +47,15 @@ export default function ProbabilisticPage() {
             projectUrl="/monty-hall"
             projectLinkLabel="OPEN INTERACTIVE SIMULATOR"
           />
+
+          <ProjectCard
+            title="The Poisson Limit Theorem"
+            tags={["Probability Theory", "Limit Theorems", "Interactive"]}
+            description="Study the law of rare events: as the number of independent trials grows and the success probability shrinks at a fixed mean, the Binomial distribution converges to the Poisson law. Includes a formal derivation and an interactive convergence laboratory."
+            insight="Compare the Binomial and Poisson probability masses, total variation distance, and Le Cam bound for multiple values of λ and n."
+            projectUrl="/poisson"
+            projectLinkLabel="OPEN CONVERGENCE LAB"
+          />
         </div>
       </div>
 
