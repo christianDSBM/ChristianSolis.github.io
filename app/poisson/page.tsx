@@ -69,18 +69,59 @@ export default function PoissonPage() {
                 muchas oportunidades de ocurrencia y cada evento individual es
                 raro.
               </p>
+              <div className="grid gap-4 pt-2 md:grid-cols-2">
+                <div className="rounded-xl border border-zinc-800 bg-zinc-950/80 p-5">
+                  <h3 className="mb-2 font-serif text-xl font-semibold text-foreground">
+                    Distribución Binomial
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    Cuenta el número de éxitos en n ensayos independientes,
+                    cada uno con la misma probabilidad p. Su soporte es finito,
+                    de 0 a n, y sus parámetros determinan tanto el número de
+                    oportunidades como la tasa de éxito.
+                  </p>
+                  <div className="overflow-x-auto rounded-lg border border-zinc-800 bg-zinc-900/70 px-3 py-1">
+                    <LaTeXBlock>
+                      {String.raw`P(X=k)=\binom{n}{k}p^k(1-p)^{n-k},\quad \mathbb{E}[X]=np,\quad \mathrm{Var}(X)=np(1-p)`}
+                    </LaTeXBlock>
+                  </div>
+                </div>
+                <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] p-5">
+                  <h3 className="mb-2 font-serif text-xl font-semibold text-emerald-300">
+                    Distribución de Poisson
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    Modela el número de ocurrencias en una región, intervalo de
+                    tiempo o espacio cuando suceden de forma independiente y a
+                    una tasa promedio λ. Puede tomar cualquier entero no
+                    negativo, y tanto su media como su varianza son λ.
+                  </p>
+                  <div className="overflow-x-auto rounded-lg border border-emerald-500/10 bg-zinc-900/70 px-3 py-1">
+                    <LaTeXBlock>
+                      {String.raw`P(Y=k)=\frac{\lambda^k e^{-\lambda}}{k!},\quad \mathbb{E}[Y]=\mathrm{Var}(Y)=\lambda`}
+                    </LaTeXBlock>
+                  </div>
+                </div>
+              </div>
+              <p className="rounded-lg border border-zinc-800 bg-zinc-950/70 p-4 text-sm">
+                <strong className="text-foreground">En pocas palabras:</strong>{" "}
+                la Binomial describe un número fijo de oportunidades; la
+                Poisson describe un conteo a una tasa media. Cuando hay muchas
+                oportunidades y cada éxito es raro, usar λ = np permite
+                aproximar la primera con la segunda.
+              </p>
             </div>
           </section>
 
           <section aria-labelledby="demostracion" className={sectionClass}>
             <p className="mb-2 text-sm font-semibold text-emerald-400">
-              02 / La demostración formal
+              02 / Teorema y demostración
             </p>
             <h2
               id="demostracion"
               className="mb-4 font-serif text-2xl font-semibold md:text-3xl"
             >
-              El límite analítico de la masa binomial
+              Convergencia de la Binomial a la Poisson
             </h2>
             <div className="space-y-5 leading-relaxed text-muted-foreground">
               <p>
