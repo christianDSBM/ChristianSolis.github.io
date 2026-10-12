@@ -1,6 +1,7 @@
 "use client"
 
 import { ExternalLink, FileText, Play, Lightbulb } from "lucide-react"
+import Link from "next/link"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { LaTeX } from "@/components/latex"
@@ -14,6 +15,8 @@ export interface ProjectCardProps {
   slidesUrl?: string
   videoUrl?: string
   pdfUrl?: string
+  projectUrl?: string
+  projectLinkLabel?: string
   status?: "completed" | "in-progress"
 }
 
@@ -26,6 +29,8 @@ export function ProjectCard({
   slidesUrl,
   videoUrl,
   pdfUrl,
+  projectUrl,
+  projectLinkLabel = "VIEW PROJECT",
   status = "completed",
 }: ProjectCardProps) {
   return (
@@ -88,8 +93,14 @@ export function ProjectCard({
           </div>
         )}
 
-        {(slidesUrl || videoUrl || pdfUrl) && (
+        {(slidesUrl || videoUrl || pdfUrl || projectUrl) && (
           <div className="flex flex-wrap gap-4 pt-2">
+            {projectUrl && (
+              <Link href={projectUrl} className="flex items-center gap-2 text-xs font-bold text-zinc-500 hover:text-emerald-400 transition-colors">
+                <ExternalLink className="h-3.5 w-3.5" />
+                <span>{projectLinkLabel}</span>
+              </Link>
+            )}
             {pdfUrl && (
               <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-xs font-bold text-zinc-500 hover:text-emerald-400 transition-colors">
                 <FileText className="h-3.5 w-3.5" />

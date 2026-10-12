@@ -3,7 +3,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ProjectCard } from "@/components/project-card" // <-- El import que faltaba
-import { SectionHeader } from "@/components/section-header"
 import { Badge } from "@/components/ui/badge"
 
 export default function ProbabilisticPage() {
@@ -15,7 +14,7 @@ export default function ProbabilisticPage() {
         <div className="mb-16">
           <Badge variant="outline" className="mb-4">Mathematics & Analysis</Badge>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold mb-6">
-            Probabilistic Algorithms
+            Probability
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
             Exploración de algoritmos aleatorizados y análisis estadístico profundo. 
@@ -38,6 +37,15 @@ export default function ProbabilisticPage() {
             description="Exploración de la relación entre dos variables aleatorias: distribuciones conjuntas, marginales y condicionales. Análisis de covarianza y el coeficiente de correlación de Pearson."
             insight="En la industria, el análisis bivariado es el primer paso para detectar dependencias no evidentes entre KPIs de negocio."
             latex="\rho_{X,Y} = \frac{E[(X-\mu_X)(Y-\mu_Y)]}{\sigma_X \sigma_Y}"
+          />
+
+          <ProjectCard
+            title="The Monty Hall Problem"
+            tags={["Conditional Probability", "Monte Carlo", "Interactive"]}
+            description="Explore the famous three-door puzzle: should you keep your first choice or switch after the host reveals a goat? Review the mathematical argument and test both strategies with a serverless Monte Carlo simulator."
+            insight="Switching wins when your initial choice was wrong, which happens with probability 2/3. Run up to 500,000 experiments and compare the empirical results with theory."
+            projectUrl="/monty-hall"
+            projectLinkLabel="OPEN INTERACTIVE SIMULATOR"
           />
         </div>
       </div>

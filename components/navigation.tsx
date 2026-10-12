@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button"
 const navItems = [
   { href: "/concurrent", label: "Concurrent" },
   { href: "/probabilistic", label: "Probability" },
-  { href: "/monty-hall", label: "Monty Hall" },
   { href: "/dataScience", label: "Data Science" },
 ]
 
