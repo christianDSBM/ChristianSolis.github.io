@@ -31,7 +31,7 @@ export function TutorialStep({
       {/* Encabezado */}
       <div className="flex items-center gap-4 text-emerald-500">
         <div className="w-8 h-8">{icon}</div>
-        <h2 className="text-3xl font-serif font-medium text-white">
+        <h2 className="text-3xl font-serif font-medium text-foreground dark:text-white">
           {String(stepNumber).padStart(2, "0")}. {title}
         </h2>
       </div>

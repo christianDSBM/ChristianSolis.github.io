@@ -143,7 +143,7 @@ export function CreditSimulator() {
   return (
     <Card className="bg-zinc-950 border-emerald-500/20 shadow-2xl overflow-hidden">
       <CardHeader className="border-b border-white/5 bg-emerald-500/5">
-        <CardTitle className="text-white font-serif">
+        <CardTitle className="text-foreground dark:text-white font-serif">
           Real-Time Risk Simulator
         </CardTitle>
         <CardDescription className="text-zinc-400 text-sm">

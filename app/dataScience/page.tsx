@@ -22,7 +22,7 @@ import { CreditSimulator } from "@/components/CreditSimulator"
 
 export default function DataSciencePage() {
   return (
-    <main className="min-h-screen bg-[#0a0a0b]">
+    <main className="min-h-screen bg-background dark:bg-[#0a0a0b]">
       <Navigation />
 
       <div className="max-w-7xl mx-auto px-6 pt-32 pb-24">
@@ -34,7 +34,7 @@ export default function DataSciencePage() {
           >
             Financial Engineering Case Study
           </Badge>
-          <h1 className="font-serif text-5xl md:text-6xl font-semibold mb-8 text-white tracking-tight">
+          <h1 className="font-serif text-5xl md:text-6xl font-semibold mb-8 text-foreground dark:text-white tracking-tight">
             Credit Risk <span className="text-emerald-500">Scoring Model</span>
           </h1>
           <p className="text-xl text-zinc-400 leading-relaxed">
@@ -495,7 +495,7 @@ print(f"AUC-ROC: {auc:.4f}")`}
             <section id="demo" className="scroll-mt-32 space-y-8 pb-20">
               <div className="flex items-center gap-4 text-emerald-500">
                 <BrainCircuit className="w-8 h-8" />
-                <h2 className="text-3xl font-serif font-medium text-white">
+                <h2 className="text-3xl font-serif font-medium text-foreground dark:text-white">
                   07. Prueba el Modelo
                 </h2>
               </div>
@@ -510,7 +510,7 @@ print(f"AUC-ROC: {auc:.4f}")`}
             <section className="scroll-mt-32 space-y-6 pb-32">
               <div className="flex items-center gap-4 text-emerald-500">
                 <Activity className="w-8 h-8" />
-                <h2 className="text-3xl font-serif font-medium text-white">
+                <h2 className="text-3xl font-serif font-medium text-foreground dark:text-white">
                   Conclusiones y Próximos Pasos
                 </h2>
               </div>

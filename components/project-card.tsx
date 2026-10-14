@@ -34,7 +34,7 @@ export function ProjectCard({
   status = "completed",
 }: ProjectCardProps) {
   return (
-    <Card className="group relative overflow-hidden border-emerald-500/10 hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-500 bg-[#0a0a0b]">
+    <Card className="group relative overflow-hidden border-emerald-500/10 hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(137,84,46,0.1)] dark:hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-500 bg-card dark:bg-[#0a0a0b]">
       {/* Glow de fondo dinámico */}
       <div className="absolute -inset-px bg-gradient-to-br from-emerald-500/20 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       

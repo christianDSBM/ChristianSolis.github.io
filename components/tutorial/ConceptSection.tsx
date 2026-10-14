@@ -26,13 +26,13 @@ export function ConceptSection({
       {icon && (
         <div className="flex items-center gap-3">
           <div className="text-emerald-500">{icon}</div>
-          <h3 className="text-2xl font-serif font-medium text-white">
+          <h3 className="text-2xl font-serif font-medium text-foreground dark:text-white">
             {title}
           </h3>
         </div>
       )}
       {!icon && (
-        <h3 className="text-xl font-serif font-medium text-white">{title}</h3>
+        <h3 className="text-xl font-serif font-medium text-foreground dark:text-white">{title}</h3>
       )}
 
       <div className="text-zinc-400 leading-relaxed space-y-3 text-lg">

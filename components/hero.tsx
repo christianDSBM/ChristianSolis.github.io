@@ -48,7 +48,7 @@ export function Hero() {
             Computer Science & Mathematics • UNAM
           </p>
           
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-white to-emerald-500 bg-clip-text text-transparent inline-block">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-foreground to-emerald-500 dark:from-white bg-clip-text text-transparent inline-block">
             Christian Solís
           </h1>
           
@@ -61,7 +61,7 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4 mb-14">
-            <Button asChild variant="default" className="group px-6 bg-emerald-600 hover:bg-emerald-500 text-white border-none shadow-[0_0_25px_rgba(16,185,129,0.25)] transition-all duration-300">
+            <Button asChild variant="default" className="group px-6 bg-emerald-600 hover:bg-emerald-500 text-white border-none shadow-[0_0_25px_rgba(137,84,46,0.16)] dark:shadow-[0_0_25px_rgba(16,185,129,0.25)] transition-all duration-300">
               <a href="#work">
                 View Research
                 <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
