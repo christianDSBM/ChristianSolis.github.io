@@ -11,6 +11,7 @@ const navItems = [
   { href: "/concurrent", label: "Concurrent" },
   { href: "/probabilistic", label: "Probability" },
   { href: "/dataScience", label: "Data Science" },
+  { href: "/books", label: "Books" },
 ]
 
 export function Navigation() {
