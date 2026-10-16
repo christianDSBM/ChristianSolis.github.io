@@ -16,7 +16,7 @@ const books = [
     title: "Programming AWS Lambda",
     authors: "John Chapin, Mike Roberts",
     isbn: "9781492041054",
-    cover: "https://covers.openlibrary.org/b/isbn/9781492041054-M.jpg",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/ChapinAndRoberts2020.png",
     tags: ["AWS", "Serverless", "Java"],
     summary:
       "Guía práctica para diseñar y desplegar aplicaciones serverless en Java usando AWS Lambda.",
@@ -27,7 +27,7 @@ const books = [
     title: "AWS Cookbook",
     authors: "John Culkin, Mike Zazon",
     isbn: "9781492092605",
-    cover: "https://covers.openlibrary.org/b/isbn/9781492092605-M.jpg",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/CulkinAndZazon2021.png",
     tags: ["AWS", "Architecture", "Cloud Recipes"],
     summary:
       "Recetas prácticas y soluciones paso a paso para resolver problemas comunes de infraestructura y despliegue en AWS.",
@@ -35,48 +35,37 @@ const books = [
       "Los ejemplos concretos ayudan a convertir servicios aislados en soluciones operativas repetibles.",
   },
   {
-    title: "A Complete Guide to DevOps with AWS",
-    authors: "Osama Mustafa",
-    isbn: "9781484293027",
-    cover: "https://covers.openlibrary.org/b/isbn/9781484293027-M.jpg",
-    tags: ["DevOps", "CI/CD", "AWS Tools"],
-    summary:
-      "Automatización, pipelines de integración y entrega continua e infraestructura como código con herramientas nativas de AWS.",
-    insight:
-      "La infraestructura como código permite revisar y versionar los cambios operativos con prácticas similares a las del software.",
-  },
-  {
     title: "Practical Serverless Applications with AWS",
     authors: "Apoorva Prakash, Shaik Inthiyaz Basha",
     isbn: "9798868812545",
-    cover: "https://covers.openlibrary.org/b/isbn/9798868812545-M.jpg",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/PrakashAndBasha2025.png",
     tags: ["Serverless", "Cloud", "FaaS"],
     summary:
       "Desarrollo end-to-end de aplicaciones orientadas a eventos y arquitecturas serverless escalables.",
     insight:
-      "La coordinación asíncrona y los contratos entre eventos son fundamentales para escalar componentes de forma independiente.",
+      "La separación clara de responsabilidades y la integración orientada a eventos minimizan el acoplamiento en sistemas en la nube.",
   },
   {
     title: "Serverless Architectures on AWS",
     authors: "Peter Sbarski, Yan Cui, Ajay Nair",
     isbn: "9781617293825",
-    cover: "https://covers.openlibrary.org/b/isbn/9781617293825-M.jpg",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/Sbarski2022.png",
     tags: ["Architecture", "Event-Driven", "Microservices"],
     summary:
       "Patrones de diseño, orquestación, optimización de costos y mejores prácticas en arquitecturas basadas en eventos.",
     insight:
-      "Elegir entre coreografía y orquestación cambia la manera de gestionar el acoplamiento, los errores y la observabilidad.",
+      "Diseñar para la idempotencia y la tolerancia a fallos es el pilar central al coordinar microservicios serverless distribuidos.",
   },
   {
     title: "Amazon Web Services in Action",
     authors: "Andreas Wittig, Michael Wittig",
     isbn: "9781617299285",
-    cover: "https://covers.openlibrary.org/b/isbn/9781617299285-M.jpg",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/WittigAndWittig2023.png",
     tags: ["Cloud Computing", "AWS Core", "Infrastructure"],
     summary:
       "Fundamentos y conceptos avanzados de computación, redes, seguridad y almacenamiento en AWS.",
     insight:
-      "Comprender las bases de redes, identidad y almacenamiento facilita diseñar sistemas cloud seguros y resilientes.",
+      "Tratar la infraestructura como código ejecutable garantiza entornos reproducibles, auditables y resilientes.",
   },
 ]
 
