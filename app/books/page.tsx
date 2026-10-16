@@ -16,7 +16,7 @@ const books = [
     title: "Programming AWS Lambda",
     authors: "John Chapin, Mike Roberts",
     isbn: "9781492041054",
-    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/ChapinAndRoberts2020.png",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/ChapinAndRoberts2020.webp",
     tags: ["AWS", "Serverless", "Java"],
     summary:
       "Guía práctica para diseñar y desplegar aplicaciones serverless en Java usando AWS Lambda.",
@@ -27,7 +27,7 @@ const books = [
     title: "AWS Cookbook",
     authors: "John Culkin, Mike Zazon",
     isbn: "9781492092605",
-    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/CulkinAndZazon2021.png",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/CulkinAndZazon2021.webp",
     tags: ["AWS", "Architecture", "Cloud Recipes"],
     summary:
       "Recetas prácticas y soluciones paso a paso para resolver problemas comunes de infraestructura y despliegue en AWS.",
@@ -38,7 +38,7 @@ const books = [
     title: "Practical Serverless Applications with AWS",
     authors: "Apoorva Prakash, Shaik Inthiyaz Basha",
     isbn: "9798868812545",
-    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/PrakashAndBasha2025.png",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/PrakashAndBasha2025.webp",
     tags: ["Serverless", "Cloud", "FaaS"],
     summary:
       "Desarrollo end-to-end de aplicaciones orientadas a eventos y arquitecturas serverless escalables.",
@@ -49,7 +49,7 @@ const books = [
     title: "Serverless Architectures on AWS",
     authors: "Peter Sbarski, Yan Cui, Ajay Nair",
     isbn: "9781617293825",
-    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/Sbarski2022.png",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/Sbarski2022.webp",
     tags: ["Architecture", "Event-Driven", "Microservices"],
     summary:
       "Patrones de diseño, orquestación, optimización de costos y mejores prácticas en arquitecturas basadas en eventos.",
@@ -60,7 +60,7 @@ const books = [
     title: "Amazon Web Services in Action",
     authors: "Andreas Wittig, Michael Wittig",
     isbn: "9781617299285",
-    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/WittigAndWittig2023.png",
+    cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/WittigAndWittig2023.webp",
     tags: ["Cloud Computing", "AWS Core", "Infrastructure"],
     summary:
       "Fundamentos y conceptos avanzados de computación, redes, seguridad y almacenamiento en AWS.",
