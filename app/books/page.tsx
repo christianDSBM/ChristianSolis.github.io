@@ -113,7 +113,7 @@ export default function BooksPage() {
           {books.map((book) => (
             <Card
               key={book.isbn}
-              className="group relative overflow-hidden border-sky-500/15 bg-card/90 p-5 transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.12)] dark:bg-[#0a0a0b]/85 md:p-6"
+              className="group relative overflow-hidden border-sky-500/15 bg-card/90 p-5 backdrop-blur-sm transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.12)] dark:bg-slate-900/80 md:p-6"
             >
               <div className="flex flex-col gap-6 md:flex-row">
                 <BookCover src={book.cover} title={book.title} />
@@ -170,7 +170,7 @@ export default function BooksPage() {
 
         <Card
           id="software-engineering-for-absolute-beginners"
-          className="mt-12 border-fuchsia-500/15 bg-card/90 p-6 dark:bg-[#0a0a0b]/85"
+          className="mt-12 border-fuchsia-500/15 bg-card/90 p-6 backdrop-blur-sm dark:bg-slate-900/80"
         >
           <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-fuchsia-600/80 dark:text-fuchsia-300/80">
             Lectura mencionada
