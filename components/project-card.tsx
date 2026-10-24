@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { LaTeX } from "@/components/latex"
 
 export interface ProjectCardProps {
+  id?: string
   title: string
   description: string
   insight?: string
@@ -22,6 +23,7 @@ export interface ProjectCardProps {
 }
 
 export function ProjectCard({
+  id,
   title,
   description,
   insight,
@@ -63,11 +65,11 @@ export function ProjectCard({
         }
 
   return (
-    <Card className={`group relative overflow-hidden transition-all duration-500 bg-card dark:bg-[#0a0a0b] ${accentClasses.card}`}>
+    <Card id={id} className={`group relative scroll-mt-32 overflow-hidden transition-all duration-500 bg-card dark:bg-[#0a0a0b] ${accentClasses.card}`}>
       {/* Glow de fondo dinámico */}
       <div className={`absolute -inset-px bg-gradient-to-br ${accentClasses.glow} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
       
-      {/* Borde sutil esmeralda en el top al hacer hover */}
+      {/* Hover accent line */}
       <div className={`absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent ${accentClasses.topLine} to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-700`} />
 
       <CardHeader className="relative pb-3">

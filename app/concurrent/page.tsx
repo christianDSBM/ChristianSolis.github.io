@@ -3,29 +3,35 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
-import { 
-  Workflow, 
-  ArrowRight,
-  Lock,
-} from "lucide-react"
-import { InsightBox } from "@/components/tutorial/InsightBox"
-import { CodeBlock } from "@/components/tutorial/CodeBlock"
+import { ArrowRight } from "lucide-react"
 import { ProjectCard } from "@/components/project-card"
-import { PDFViewer } from "@/components/pdf-viewer"
+import Link from "next/link"
 
 export default function ConcurrentPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
       
-      <div className="max-w-5xl mx-auto px-6 pt-32 pb-24">
-        <div className="mb-16">
+      <div className="max-w-7xl mx-auto px-6 pt-32 pb-24">
+        <div className="max-w-3xl mb-12">
           <Badge variant="outline" className="mb-4">Theory & Implementation</Badge>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold mb-6">
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 bg-gradient-to-r from-[#89542e] via-[#b7793f] to-[#89542e] dark:from-sky-400 dark:via-violet-400 dark:to-fuchsia-400 bg-clip-text text-transparent">
             Concurrent Computing
           </h1>
           
-          <div className="text-xl text-muted-foreground leading-relaxed max-w-3xl space-y-6 text-justify hyphens-auto">
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            Concurrent computing studies how multiple processes work toward a
+            shared goal while coordinating access to shared resources. The
+            presentations below use Java examples to explore threads,
+            synchronization, memory models, scalable locks, consistency, and
+            consensus.
+          </p>
+
+          <details className="group mt-6 rounded-xl border border-border/60 bg-card/60 p-5 open:bg-card/80">
+            <summary className="cursor-pointer font-medium text-sky-700 marker:text-fuchsia-600 hover:text-fuchsia-700 dark:text-sky-300 dark:marker:text-fuchsia-300 dark:hover:text-fuchsia-300">
+              Read the longer introduction: the puzzle analogy
+            </summary>
+            <div className="mt-5 space-y-5 text-base leading-relaxed text-muted-foreground">
             <p>
               When people ask me what concurrent computing is, I usually say something like: it is the study of what happens when multiple processes perform computations to achieve a common goal. However, for those unfamiliar with computer science, this is nothing more than a tongue twister.
             </p>
@@ -53,9 +59,41 @@ export default function ConcurrentPage() {
             </p>
 
             <p>To delve deeper into the technical challenges of shared systems, I have prepared a series of slides focused on practical implementation. Here we analyze case studies using Java, exploring how the language handles communication between processes and what tools it offers us to avoid memory conflicts. It is a visual journey through the code that makes high-performance computing possible.</p>
-          </div>
+            </div>
+          </details>
         </div>
 
+        <div className="grid items-start gap-12 lg:grid-cols-[260px_minmax(0,1fr)]">
+          <aside className="lg:sticky lg:top-28 lg:h-fit">
+            <div className="rounded-xl border border-sky-500/15 bg-card/70 p-5 backdrop-blur-sm dark:border-sky-500/15 dark:bg-slate-900/70 lg:border-l-2 lg:border-y-0 lg:border-r-0 lg:rounded-none lg:bg-transparent lg:p-0 lg:pl-6 lg:backdrop-blur-none">
+              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#89542e]/70 dark:text-sky-300/70">
+                Contenido del proyecto
+              </p>
+              <nav aria-label="Contenido del proyecto" className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm lg:flex lg:flex-col lg:gap-5">
+                {[
+                  { href: "#module-1", label: "Thread Management" },
+                  { href: "#module-2", label: "Synchronization" },
+                  { href: "#module-3", label: "Algorithms & Memory" },
+                  { href: "#module-4", label: "Atomic Operations & Locks" },
+                  { href: "#module-5", label: "Consistency" },
+                  { href: "#module-6", label: "Bakery Algorithm" },
+                  { href: "#module-7", label: "Distributed Consensus" },
+                  { href: "#upcoming", label: "Upcoming Articles" },
+                ].map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group flex items-center gap-2 text-muted-foreground transition-colors hover:text-[#89542e] dark:hover:text-sky-300"
+                  >
+                    <ArrowRight className="h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <div className="min-w-0">
         <div className="mb-12 text-muted-foreground max-w-3xl leading-relaxed">
           Below, I have included several presentations created as supporting material for the 
           Concurrent Computing course taught by Prof. Gilde Valeria Rodriguez Jimenez at Facultad de Ciencias, UNAM, 
@@ -66,6 +104,7 @@ export default function ConcurrentPage() {
         <div className="grid gap-8">
           {/* Module 1: Fundamentals and Java */}
         <ProjectCard 
+          id="module-1"
           title="I. Thread Management in Java"
           tags={["Java", "Multithreading", "Fundamentals"]}
           description="
@@ -79,6 +118,7 @@ export default function ConcurrentPage() {
 
           {/* Module 2: Synchronization and Coordination */}
           <ProjectCard 
+            id="module-2"
             title="II. Mutual Exclusion and Synchronization"
             tags={["Locking", "Java Concurrency", "Optimization"]}
             description="
@@ -93,6 +133,7 @@ export default function ConcurrentPage() {
 
           {/* Module 3: Classical Algorithms and Memory Models */}
           <ProjectCard 
+          id="module-3"
           title="III. Classical Algorithms and Memory Models"
           tags={["Peterson", "Bakery", "Java Memory Model", "Volatile"]}
           description="
@@ -108,6 +149,7 @@ export default function ConcurrentPage() {
         
         {/* Module 4: Atomic Operations and Scalable Locks */}
         <ProjectCard 
+        id="module-4"
         title="IV. Atomic Operations and Scalable Locks"
         tags={["Atomics", "Spinlocks", "Wait Algorithms", "Hardware"]}
         description="
@@ -124,6 +166,7 @@ export default function ConcurrentPage() {
 
               {/* Module V: Quiescent and Eventual Consistency */}
         <ProjectCard 
+        id="module-5"
         title="V. Quiescent and Eventual Consistency"
         tags={["Eventual Consistency", "Sloppy Counter", "Quiescent Consistency", "Diffraction tree"]}
         description="
@@ -134,6 +177,7 @@ export default function ConcurrentPage() {
       />
 
       <ProjectCard 
+        id="module-6"
         title="VI. Lamport's Bakery Algorithm"
         tags={["Leslie Lamport", "Theory", "Liveness", "Classical Algorithms"]}
         description="
@@ -149,6 +193,7 @@ export default function ConcurrentPage() {
       />
 
       <ProjectCard 
+      id="module-7"
       title="VII. Distributed Consensus: The Paxos Protocol"
       tags={["Paxos", "Consensus", "Distributed Systems", "Fault Tolerance"]}
       description="
@@ -166,13 +211,15 @@ export default function ConcurrentPage() {
 
       </div>
 
-        <div className="mt-16 p-8 bg-secondary/20 rounded-2xl border border-border/50">
+        <div id="upcoming" className="mt-16 p-8 bg-secondary/20 rounded-2xl border border-border/50 scroll-mt-32">
           <h3 className="font-serif text-2xl mb-4">Upcoming: Detailed Articles</h3>
             <p className="text-muted-foreground">
               I am currently working on a new presentation exploring the paradigm shift toward using languages like{" "}
               <span className="text-emerald-400 font-bold">Rust</span>, which inherently prevents Race Conditions, and{" "}
               <span className="text-emerald-400 font-bold">Clojure</span>, with its focus on the Message-Passing concurrency model.
             </p>
+        </div>
+          </div>
         </div>
       </div>
 
