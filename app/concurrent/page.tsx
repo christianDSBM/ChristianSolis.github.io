@@ -9,13 +9,13 @@ import Link from "next/link"
 
 export default function ConcurrentPage() {
   return (
-    <main className="min-h-screen">
+    <main className="concurrent-page-background min-h-screen">
       <Navigation />
       
       <div className="max-w-7xl mx-auto px-6 pt-32 pb-24">
         <div className="max-w-3xl mb-12">
           <Badge variant="outline" className="mb-4">Theory & Implementation</Badge>
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 bg-gradient-to-r from-[#89542e] via-[#b7793f] to-[#89542e] dark:from-sky-400 dark:via-violet-400 dark:to-fuchsia-400 bg-clip-text text-transparent">
+          <h1 className="mb-6 bg-gradient-to-r from-emerald-700 via-emerald-500 to-lime-700 bg-clip-text font-serif text-4xl font-semibold text-transparent md:text-5xl lg:text-6xl dark:from-emerald-300 dark:via-green-400 dark:to-lime-300">
             Concurrent Computing
           </h1>
           
@@ -27,8 +27,8 @@ export default function ConcurrentPage() {
             consensus.
           </p>
 
-          <details className="group mt-6 rounded-xl border border-border/60 bg-card/60 p-5 open:bg-card/80">
-            <summary className="cursor-pointer font-medium text-sky-700 marker:text-fuchsia-600 hover:text-fuchsia-700 dark:text-sky-300 dark:marker:text-fuchsia-300 dark:hover:text-fuchsia-300">
+          <details className="group mt-6 rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] p-5 open:bg-emerald-500/[0.06]">
+            <summary className="cursor-pointer font-medium text-emerald-700 marker:text-emerald-500 hover:text-emerald-600 dark:text-emerald-300 dark:marker:text-lime-300 dark:hover:text-lime-300">
               Read the longer introduction: the puzzle analogy
             </summary>
             <div className="mt-5 space-y-5 text-base leading-relaxed text-muted-foreground">
@@ -65,8 +65,8 @@ export default function ConcurrentPage() {
 
         <div className="grid items-start gap-12 lg:grid-cols-[260px_minmax(0,1fr)]">
           <aside className="lg:sticky lg:top-28 lg:h-fit">
-            <div className="rounded-xl border border-sky-500/15 bg-card/70 p-5 backdrop-blur-sm dark:border-sky-500/15 dark:bg-slate-900/70 lg:border-l-2 lg:border-y-0 lg:border-r-0 lg:rounded-none lg:bg-transparent lg:p-0 lg:pl-6 lg:backdrop-blur-none">
-              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-[#89542e]/70 dark:text-sky-300/70">
+            <div className="concurrent-glass-menu rounded-2xl p-5 backdrop-blur-2xl lg:p-6">
+              <p className="mb-5 text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-700/80 dark:text-emerald-300/80">
                 Contenido del proyecto
               </p>
               <nav aria-label="Contenido del proyecto" className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm lg:flex lg:flex-col lg:gap-5">
@@ -83,7 +83,7 @@ export default function ConcurrentPage() {
                   <Link
                     key={href}
                     href={href}
-                    className="group flex items-center gap-2 text-muted-foreground transition-colors hover:text-[#89542e] dark:hover:text-sky-300"
+                    className="group flex items-center gap-2 text-muted-foreground transition-colors hover:text-emerald-700 dark:hover:text-emerald-300"
                   >
                     <ArrowRight className="h-3 w-3 shrink-0 opacity-0 transition-opacity group-hover:opacity-100" />
                     {label}

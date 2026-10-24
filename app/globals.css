@@ -204,6 +204,99 @@
     );
 }
 
+.concurrent-page-background {
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #a855f7;
+  background-color: #f6fbf7;
+  background-image:
+    radial-gradient(
+      ellipse 82% 52% at 14% 4%,
+      rgba(16, 185, 129, 0.13) 0%,
+      rgba(16, 185, 129, 0.045) 48%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 72% 60% at 94% 24%,
+      rgba(132, 204, 22, 0.11) 0%,
+      rgba(132, 204, 22, 0.035) 48%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 76% 66% at 32% 84%,
+      rgba(5, 150, 105, 0.08) 0%,
+      transparent 76%
+    );
+  background-attachment: fixed;
+}
+
+.dark .concurrent-page-background {
+  --color-emerald-300: #6ee7b7;
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-purple-400: #c084fc;
+  --color-purple-500: #a855f7;
+  background-color: #030b08;
+  background-image:
+    radial-gradient(
+      ellipse 88% 60% at 14% 4%,
+      rgba(16, 185, 129, 0.2) 0%,
+      rgba(16, 185, 129, 0.07) 48%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 78% 62% at 94% 24%,
+      rgba(132, 204, 22, 0.15) 0%,
+      rgba(132, 204, 22, 0.045) 48%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 80% 68% at 32% 84%,
+      rgba(5, 150, 105, 0.13) 0%,
+      transparent 78%
+    );
+}
+
+.concurrent-glass-menu {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.24))
+      padding-box,
+    linear-gradient(
+      135deg,
+      rgba(16, 185, 129, 0.52),
+      rgba(255, 255, 255, 0.72) 48%,
+      rgba(132, 204, 22, 0.4)
+    )
+      border-box;
+  box-shadow:
+    0 12px 36px rgba(5, 150, 105, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.dark .concurrent-glass-menu {
+  background:
+    linear-gradient(rgba(8, 25, 19, 0.58), rgba(8, 25, 19, 0.34)) padding-box,
+    linear-gradient(
+      135deg,
+      rgba(52, 211, 153, 0.58),
+      rgba(255, 255, 255, 0.2) 48%,
+      rgba(163, 230, 53, 0.4)
+    )
+      border-box;
+  box-shadow:
+    0 12px 36px rgba(16, 185, 129, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
 html:not(.dark) [class*="bg-zinc-"] {
   background-color: var(--card);
 }
