@@ -12,7 +12,7 @@ export default function HomePage() {
       
       <section id="work" className="py-24 bg-secondary/10">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="font-serif text-3xl mb-12 text-sky-700 dark:text-sky-300">Research & Specializations</h2>
+          <h2 className="font-serif text-3xl mb-12 text-fuchsia-700 dark:text-fuchsia-300">Research & Specializations</h2>
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
@@ -21,7 +21,7 @@ export default function HomePage() {
                 title="Concurrent Computing"
                 description={
                   <>
-                    Investigación analizando el impacto de la <span className="font-medium text-sky-700 dark:text-sky-300">relajación semántica</span> en el poder computacional, <span className="font-medium text-sky-700 dark:text-sky-300">número de consenso</span>, así como la implementación de objetos de alto rendimiento enfocada en optimizar la <span className="font-medium text-sky-700 dark:text-sky-300">escalabilidad</span>.
+                    Investigación analizando el impacto de la <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">relajación semántica</span> en el poder computacional, <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">número de consenso</span>, así como la implementación de objetos de alto rendimiento enfocada en optimizar la <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">escalabilidad</span>.
                   </>
                 }
                 tags={["Theory", "Java", "Systems", "Rust"]}
@@ -33,7 +33,7 @@ export default function HomePage() {
               title="Graph Theory"
               description={
                 <>
-                  Investigación sobre la caracterización de <span className="font-medium text-sky-700 dark:text-sky-300">digráficas de intervalos</span> mediante estructuras prohibidas, lo cual dió pie al desarrollo de algoritmos de reconocimiento en <span className="font-medium text-sky-700 dark:text-sky-300">tiempo polinomial</span>, enfocados en la <span className="font-medium text-sky-700 dark:text-sky-300">optimización de la eficiencia</span> computacional.
+                  Investigación sobre la caracterización de <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">digráficas de intervalos</span> mediante estructuras prohibidas, lo cual dió pie al desarrollo de algoritmos de reconocimiento en <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">tiempo polinomial</span>, enfocados en la <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">optimización de la eficiencia</span> computacional.
                 </>
               }
               tags={["Math", "Algorithms", "Optimization"]}
@@ -46,7 +46,7 @@ export default function HomePage() {
               title="Probabilistic Algorithms"
               description={
                 <>
-                  Estudio de la <span className="font-medium text-sky-700 dark:text-sky-300">relajación de la corrección</span> mediante algoritmos de Monte Carlo para lograr <span className="font-medium text-sky-700 dark:text-sky-300">escalabilidad extrema</span>. Especializado en el análisis del <span className="font-medium text-sky-700 dark:text-sky-300">tiempo de ejecución esperado</span> y la reducción de complejidad en escenarios de alta incertidumbre.
+                  Estudio de la <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">relajación de la corrección</span> mediante algoritmos de Monte Carlo para lograr <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">escalabilidad extrema</span>. Especializado en el análisis del <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">tiempo de ejecución esperado</span> y la reducción de complejidad en escenarios de alta incertidumbre.
                 </>
               }
               tags={["Monte Carlo", "Las Vegas", "Randomization"]}
@@ -59,7 +59,7 @@ export default function HomePage() {
               title="Data Science & Analytics"
               description={
                 <>
-                  Aplicación de <span className="font-medium text-sky-700 dark:text-sky-300">Machine Learning</span> y análisis estadístico para la resolución de problemas de negocio. Experiencia en el pipeline completo: desde la extracción mediante <span className="font-medium text-sky-700 dark:text-sky-300">SQL</span> hasta el modelado predictivo con <span className="font-medium text-sky-700 dark:text-sky-300">Scikit-Learn</span> y visualización de insights.
+                  Aplicación de <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">Machine Learning</span> y análisis estadístico para la resolución de problemas de negocio. Experiencia en el pipeline completo: desde la extracción mediante <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">SQL</span> hasta el modelado predictivo con <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">Scikit-Learn</span> y visualización de insights.
                 </>
               }
               tags={["Python", "Pandas", "Scikit-Learn"]}
@@ -71,7 +71,7 @@ export default function HomePage() {
               title="Stochastic Processes"
               description={
                 <>
-                  Área de especialización actual. Mi interés se centra en el estudio de <span className="font-medium text-sky-700 dark:text-sky-300">martingalas</span> y <span className="font-medium text-sky-700 dark:text-sky-300">cadenas de Markov</span> como herramientas para modelar la incertidumbre en sistemas dinámicos y mercados financieros.
+                  Área de especialización actual. Mi interés se centra en el estudio de <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">martingalas</span> y <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">cadenas de Markov</span> como herramientas para modelar la incertidumbre en sistemas dinámicos y mercados financieros.
                 </>
               }
               tags={["Research In Progress", "Math", "Modeling"]}
@@ -84,7 +84,7 @@ export default function HomePage() {
               title="Exploratory Data Analysis"
               description={
                 <>
-                  Transformación de datos crudos en <span className="font-medium text-sky-700 dark:text-sky-300">insights accionables</span> mediante el análisis estadístico profundo. Especializado en el descubrimiento de <span className="font-medium text-sky-700 dark:text-sky-300">patrones y anomalías</span>, utilizando herramientas de visualización para comunicar hallazgos complejos de forma clara.
+                  Transformación de datos crudos en <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">insights accionables</span> mediante el análisis estadístico profundo. Especializado en el descubrimiento de <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">patrones y anomalías</span>, utilizando herramientas de visualización para comunicar hallazgos complejos de forma clara.
                 </>
               }
               tags={["Pandas", "Matplotlib", "Seaborn"]}

@@ -44,17 +44,17 @@ export function Hero() {
 
       <div className="max-w-5xl mx-auto px-6 w-full">
         <div className="max-w-2xl">
-          <p className="text-sm font-bold mb-4 tracking-[0.2em] uppercase italic text-sky-700 dark:text-sky-300">
+          <p className="text-sm font-bold mb-4 tracking-[0.2em] uppercase italic text-fuchsia-700 dark:text-fuchsia-300">
             Computer Science & Mathematics • UNAM
           </p>
           
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-sky-700 via-indigo-700 to-fuchsia-700 dark:from-sky-300 dark:via-violet-300 dark:to-fuchsia-300 bg-clip-text text-transparent inline-block">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 dark:from-sky-400 dark:via-violet-400 dark:to-fuchsia-400 bg-clip-text text-transparent inline-block">
             Christian Solís
           </h1>
           
           <p className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-8 max-w-xl">
             {"Master's candidate at UNAM specializing in "}
-            <span className="font-medium text-sky-700 dark:text-sky-300">probabilistic algorithms</span>
+            <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">probabilistic algorithms</span>
             {" and "}
             <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">concurrent systems</span>.
             {" I apply mathematical rigor to solve complex data challenges."}
@@ -70,7 +70,7 @@ export function Hero() {
 
             <Button asChild variant="outline" className="px-6 border-sky-500/30 hover:border-fuchsia-500/50 hover:bg-fuchsia-500/5">
               <a href="https://drive.google.com/file/d/1PgI-ekbXLlDX9klvr8fuREJ2TqEnjovg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <FileText className="mr-2 h-4 w-4 text-sky-600 dark:text-sky-300" />
+                <FileText className="mr-2 h-4 w-4 text-fuchsia-600 dark:text-fuchsia-300" />
                 Resume / CV
               </a>
             </Button>
@@ -78,7 +78,7 @@ export function Hero() {
 
           <div className="flex flex-col gap-6 mb-4 pt-8 relative">
             <div className="flex items-center gap-4 mb-2">
-              <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap text-sky-700 dark:text-sky-300">
+              <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap text-fuchsia-700 dark:text-fuchsia-300">
                 Technical Toolbox
               </span>
               <div className="h-[1px] flex-1 bg-gradient-to-r from-sky-500/70 via-fuchsia-400/25 to-transparent" />
@@ -88,7 +88,7 @@ export function Hero() {
               <div className="animate-scroll flex gap-12 py-4">
                 {[...tools, ...tools].map((tool, index) => (
                   <div key={index} className="flex flex-col items-center gap-3 min-w-[110px] group transition-transform duration-300 hover:scale-110">
-                    <tool.Icon className="h-10 w-10 text-muted-foreground/60 transition-colors duration-300 group-hover:text-sky-600 dark:group-hover:text-sky-300" />
+                    <tool.Icon className="h-10 w-10 text-muted-foreground/60 transition-colors duration-300 group-hover:text-fuchsia-600 dark:group-hover:text-fuchsia-300" />
                     <div className="flex flex-col items-center leading-tight">
                       <span className="text-[10px] font-bold text-foreground/70 transition-colors group-hover:text-fuchsia-700 dark:group-hover:text-fuchsia-300 uppercase tracking-wider text-center">
                         {tool.label}
