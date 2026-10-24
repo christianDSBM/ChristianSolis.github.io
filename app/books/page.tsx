@@ -80,12 +80,12 @@ export default function BooksPage() {
         <header className="max-w-3xl mb-12">
           <Badge
             variant="outline"
-            className="mb-4 border-sky-500/30 bg-sky-500/5 px-3 py-1 text-sky-600 dark:text-sky-300"
+            className="mb-4 border-[#89542e]/30 bg-[#89542e]/5 px-3 py-1 text-[#734123] dark:border-sky-500/30 dark:bg-sky-500/5 dark:text-sky-300"
           >
             Reading log
           </Badge>
           <h1 className="font-serif text-5xl md:text-6xl font-semibold mb-5 text-foreground dark:text-white tracking-tight">
-            Books <span className="text-sky-600 dark:text-sky-300">&amp; Notes</span>
+            Books <span className="bg-gradient-to-r from-[#89542e] to-[#b7793f] bg-clip-text text-transparent dark:from-sky-300 dark:to-fuchsia-300">&amp; Notes</span>
           </h1>
           <div className="space-y-4 text-lg leading-relaxed text-zinc-400">
             <p>
@@ -113,14 +113,14 @@ export default function BooksPage() {
           {books.map((book) => (
             <Card
               key={book.isbn}
-              className="group relative overflow-hidden border-sky-500/15 bg-card/90 p-5 backdrop-blur-sm transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.12)] dark:bg-slate-900/80 md:p-6"
+              className="group relative overflow-hidden border-[#89542e]/15 bg-card/90 p-5 backdrop-blur-sm transition-all duration-500 hover:border-[#89542e]/40 hover:shadow-[0_0_30px_rgba(137,84,46,0.12)] dark:border-sky-500/15 dark:bg-slate-900/80 dark:hover:border-sky-400/40 dark:hover:shadow-[0_0_30px_rgba(56,189,248,0.12)] md:p-6"
             >
               <div className="flex flex-col gap-6 md:flex-row">
                 <BookCover src={book.cover} title={book.title} />
 
                 <div className="min-w-0 flex-1 space-y-4">
                   <div>
-                    <h2 className="font-serif text-2xl font-semibold leading-tight text-foreground transition-colors group-hover:text-sky-500 dark:text-white dark:group-hover:text-sky-300">
+                    <h2 className="font-serif text-2xl font-semibold leading-tight text-foreground transition-colors group-hover:text-[#89542e] dark:text-white dark:group-hover:text-sky-300">
                       {book.title}
                     </h2>
                     <p className="mt-1 text-sm text-zinc-500">{book.authors}</p>
@@ -129,7 +129,7 @@ export default function BooksPage() {
                         <Badge
                           key={tag}
                           variant="outline"
-                          className="border-sky-500/20 bg-sky-500/5 text-[10px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-300"
+                          className="border-[#89542e]/20 bg-[#89542e]/5 text-[10px] font-bold uppercase tracking-wider text-[#734123] dark:border-sky-500/20 dark:bg-sky-500/5 dark:text-sky-300"
                         >
                           {tag}
                         </Badge>
@@ -141,10 +141,10 @@ export default function BooksPage() {
                     {book.summary}
                   </p>
 
-                  <div className="flex gap-3 rounded-lg border border-fuchsia-500/15 bg-fuchsia-500/5 px-4 py-3 transition-colors group-hover:border-fuchsia-500/30">
-                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-fuchsia-500 dark:text-fuchsia-300" />
+                  <div className="flex gap-3 rounded-lg border border-[#89542e]/15 bg-[#89542e]/5 px-4 py-3 transition-colors group-hover:border-[#89542e]/30 dark:border-fuchsia-500/15 dark:bg-fuchsia-500/5 dark:group-hover:border-fuchsia-500/30">
+                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-[#89542e] dark:text-fuchsia-300" />
                     <div>
-                      <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-fuchsia-600/80 dark:text-fuchsia-300/80">
+                      <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#734123]/80 dark:text-fuchsia-300/80">
                         Deep Tech Insight
                       </p>
                       <p className="text-xs leading-relaxed text-zinc-400">
@@ -156,7 +156,7 @@ export default function BooksPage() {
                   {book.reviewHref && (
                     <Link
                       href={book.reviewHref}
-                      className="inline-flex items-center gap-2 pt-1 text-xs font-bold text-zinc-500 transition-colors hover:text-fuchsia-600 dark:hover:text-fuchsia-300"
+                      className="inline-flex items-center gap-2 pt-1 text-xs font-bold text-zinc-500 transition-colors hover:text-[#89542e] dark:hover:text-fuchsia-300"
                     >
                       <ArrowRight className="h-3.5 w-3.5" />
                       <span>LEER RESEÑA DEL CAPÍTULO 1</span>
@@ -170,9 +170,9 @@ export default function BooksPage() {
 
         <Card
           id="software-engineering-for-absolute-beginners"
-          className="mt-12 border-fuchsia-500/15 bg-card/90 p-6 backdrop-blur-sm dark:bg-slate-900/80"
+          className="mt-12 border-[#89542e]/15 bg-card/90 p-6 backdrop-blur-sm dark:border-fuchsia-500/15 dark:bg-slate-900/80"
         >
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-fuchsia-600/80 dark:text-fuchsia-300/80">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-[#734123]/80 dark:text-fuchsia-300/80">
             Lectura mencionada
           </p>
           <h2 className="font-serif text-xl font-semibold text-foreground dark:text-white">

@@ -38,16 +38,16 @@ export function ProjectCard({
   const accentClasses =
     accent === "blue"
       ? {
-          card: "border-sky-500/15 hover:border-sky-400/45 hover:shadow-[0_0_30px_rgba(56,189,248,0.12)] dark:hover:shadow-[0_0_30px_rgba(56,189,248,0.12)]",
-          glow: "from-sky-500/20 via-transparent to-fuchsia-500/10",
-          topLine: "via-sky-400/60",
-          title: "group-hover:text-fuchsia-700 dark:group-hover:text-fuchsia-300",
-          status: "bg-sky-500/10 text-fuchsia-700 border-sky-500/20 dark:text-fuchsia-300",
-          tag: "bg-sky-500/5 border-sky-500/20 text-fuchsia-700 group-hover:border-sky-500/40 group-hover:text-fuchsia-600 dark:text-fuchsia-300 dark:group-hover:text-fuchsia-200",
-          formula: "bg-sky-500/5 border-sky-500/10",
-          insight: "bg-fuchsia-500/5 border-fuchsia-500/15 group-hover:border-fuchsia-500/30",
-          insightIcon: "text-fuchsia-600 dark:text-fuchsia-300",
-          link: "hover:text-fuchsia-600 dark:hover:text-fuchsia-300",
+          card: "border-[#89542e]/15 hover:border-[#89542e]/40 hover:shadow-[0_0_30px_rgba(137,84,46,0.12)] dark:border-sky-500/15 dark:hover:border-sky-400/45 dark:hover:shadow-[0_0_30px_rgba(56,189,248,0.12)]",
+          glow: "from-[#89542e]/15 via-transparent to-[#b7793f]/10 dark:from-sky-500/20 dark:to-fuchsia-500/10",
+          topLine: "via-[#89542e]/60 dark:via-sky-400/60",
+          title: "group-hover:text-[#89542e] dark:group-hover:text-fuchsia-300",
+          status: "bg-[#89542e]/10 text-[#734123] border-[#89542e]/20 dark:bg-sky-500/10 dark:text-fuchsia-300 dark:border-sky-500/20",
+          tag: "bg-[#89542e]/5 border-[#89542e]/20 text-[#734123] group-hover:border-[#89542e]/40 group-hover:text-[#89542e] dark:bg-sky-500/5 dark:border-sky-500/20 dark:text-fuchsia-300 dark:group-hover:border-sky-500/40 dark:group-hover:text-fuchsia-200",
+          formula: "bg-[#89542e]/5 border-[#89542e]/10 dark:bg-sky-500/5 dark:border-sky-500/10",
+          insight: "bg-[#89542e]/5 border-[#89542e]/15 group-hover:border-[#89542e]/30 dark:bg-fuchsia-500/5 dark:border-fuchsia-500/15 dark:group-hover:border-fuchsia-500/30",
+          insightIcon: "text-[#89542e] dark:text-fuchsia-300",
+          link: "hover:text-[#89542e] dark:hover:text-fuchsia-300",
         }
       : {
           card: "border-emerald-500/10 hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(137,84,46,0.1)] dark:hover:shadow-[0_0_30px_rgba(16,185,129,0.1)]",
