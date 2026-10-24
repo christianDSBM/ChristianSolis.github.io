@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import { ExternalLink, Lightbulb } from "lucide-react"
+import { ArrowRight, Lightbulb } from "lucide-react"
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
@@ -18,6 +19,7 @@ const books = [
     isbn: "9781492041054",
     cover: "https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/ChapinAndRoberts2020.webp",
     tags: ["AWS", "Serverless", "Java"],
+    reviewHref: "/books/programming-aws-lambda",
     summary:
       "Guía práctica para diseñar y desplegar aplicaciones serverless en Java usando AWS Lambda.",
     insight:
@@ -135,20 +137,38 @@ export default function BooksPage() {
                     </div>
                   </div>
 
-                  <a
-                    href={`https://openlibrary.org/isbn/${book.isbn}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 pt-1 text-xs font-bold text-zinc-500 transition-colors hover:text-emerald-400"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5" />
-                    <span>VIEW ON OPEN LIBRARY</span>
-                  </a>
+                  {book.reviewHref && (
+                    <Link
+                      href={book.reviewHref}
+                      className="inline-flex items-center gap-2 pt-1 text-xs font-bold text-zinc-500 transition-colors hover:text-emerald-400"
+                    >
+                      <ArrowRight className="h-3.5 w-3.5" />
+                      <span>LEER RESEÑA DEL CAPÍTULO 1</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             </Card>
           ))}
         </div>
+
+        <Card
+          id="software-engineering-for-absolute-beginners"
+          className="mt-12 border-emerald-500/10 bg-card p-6 dark:bg-[#0a0a0b]"
+        >
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-emerald-500/70">
+            Lectura mencionada
+          </p>
+          <h2 className="font-serif text-xl font-semibold text-foreground dark:text-white">
+            Software Engineering for Absolute Beginners
+          </h2>
+          <p className="mt-1 text-sm text-zinc-500">John Loubser (2021)</p>
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-400">
+            Una introducción a conceptos de ingeniería de software. En la reseña
+            de Chapin y Roberts retomo su explicación de las diferencias entre
+            virtualización y contenedores.
+          </p>
+        </Card>
       </section>
 
       <Footer />
