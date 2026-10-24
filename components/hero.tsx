@@ -44,33 +44,33 @@ export function Hero() {
 
       <div className="max-w-5xl mx-auto px-6 w-full">
         <div className="max-w-2xl">
-          <p className="text-sm text-emerald-500 font-bold mb-4 tracking-[0.2em] uppercase italic">
+          <p className="text-sm font-bold mb-4 tracking-[0.2em] uppercase italic text-sky-700 dark:text-sky-300">
             Computer Science & Mathematics • UNAM
           </p>
           
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-foreground to-emerald-500 dark:from-white bg-clip-text text-transparent inline-block">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-balance leading-[1.1] mb-6 bg-gradient-to-r from-sky-700 via-indigo-700 to-fuchsia-700 dark:from-sky-300 dark:via-violet-300 dark:to-fuchsia-300 bg-clip-text text-transparent inline-block">
             Christian Solís
           </h1>
           
           <p className="text-lg md:text-xl text-foreground/90 leading-relaxed mb-8 max-w-xl">
             {"Master's candidate at UNAM specializing in "}
-            <span className="text-emerald-400 font-medium">probabilistic algorithms</span>
+            <span className="font-medium text-sky-700 dark:text-sky-300">probabilistic algorithms</span>
             {" and "}
-            <span className="text-emerald-400 font-medium">concurrent systems</span>.
+            <span className="font-medium text-fuchsia-700 dark:text-fuchsia-300">concurrent systems</span>.
             {" I apply mathematical rigor to solve complex data challenges."}
           </p>
 
           <div className="flex flex-wrap gap-4 mb-14">
-            <Button asChild variant="default" className="group px-6 bg-emerald-600 hover:bg-emerald-500 text-white border-none shadow-[0_0_25px_rgba(137,84,46,0.16)] dark:shadow-[0_0_25px_rgba(16,185,129,0.25)] transition-all duration-300">
+            <Button asChild variant="default" className="group px-6 border-none bg-gradient-to-r from-blue-700 to-fuchsia-700 text-white shadow-[0_0_25px_rgba(79,70,229,0.18)] transition-all duration-300 hover:from-blue-600 hover:to-fuchsia-600 dark:shadow-[0_0_25px_rgba(192,38,211,0.22)]">
               <a href="#work">
                 View Research
                 <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
               </a>
             </Button>
 
-            <Button asChild variant="outline" className="px-6 border-emerald-500/20 hover:border-emerald-500/50 hover:bg-emerald-500/5">
+            <Button asChild variant="outline" className="px-6 border-sky-500/30 hover:border-fuchsia-500/50 hover:bg-fuchsia-500/5">
               <a href="https://drive.google.com/file/d/1PgI-ekbXLlDX9klvr8fuREJ2TqEnjovg/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                <FileText className="mr-2 h-4 w-4 text-emerald-500/70" />
+                <FileText className="mr-2 h-4 w-4 text-sky-600 dark:text-sky-300" />
                 Resume / CV
               </a>
             </Button>
@@ -78,19 +78,19 @@ export function Hero() {
 
           <div className="flex flex-col gap-6 mb-4 pt-8 relative">
             <div className="flex items-center gap-4 mb-2">
-              <span className="text-xs text-emerald-500 font-bold uppercase tracking-widest whitespace-nowrap">
+              <span className="text-xs font-bold uppercase tracking-widest whitespace-nowrap text-sky-700 dark:text-sky-300">
                 Technical Toolbox
               </span>
-              <div className="h-[1px] flex-1 bg-gradient-to-r from-emerald-500/60 via-emerald-400/10 to-transparent" />
+              <div className="h-[1px] flex-1 bg-gradient-to-r from-sky-500/70 via-fuchsia-400/25 to-transparent" />
             </div>
 
             <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
               <div className="animate-scroll flex gap-12 py-4">
                 {[...tools, ...tools].map((tool, index) => (
                   <div key={index} className="flex flex-col items-center gap-3 min-w-[110px] group transition-transform duration-300 hover:scale-110">
-                    <tool.Icon className="h-10 w-10 text-muted-foreground/60 group-hover:text-emerald-400 transition-colors duration-300" />
+                    <tool.Icon className="h-10 w-10 text-muted-foreground/60 transition-colors duration-300 group-hover:text-sky-600 dark:group-hover:text-sky-300" />
                     <div className="flex flex-col items-center leading-tight">
-                      <span className="text-[10px] font-bold text-foreground/70 group-hover:text-emerald-400 transition-colors uppercase tracking-wider text-center">
+                      <span className="text-[10px] font-bold text-foreground/70 transition-colors group-hover:text-fuchsia-700 dark:group-hover:text-fuchsia-300 uppercase tracking-wider text-center">
                         {tool.label}
                       </span>
                       <span className="text-[8px] text-muted-foreground/40 font-medium">
