@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 
 export default function ProgrammingAwsLambdaReviewPage() {
   return (
-    <main className="min-h-screen bg-background dark:bg-[#0a0a0b]">
+    <main className="min-h-screen">
       <Navigation />
 
-      <article className="mx-auto max-w-3xl px-6 pb-24 pt-32">
+      <article className="mx-auto max-w-6xl px-6 pb-24 pt-32">
         <Link
           href="/books"
           className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-emerald-400"
@@ -25,7 +25,7 @@ export default function ProgrammingAwsLambdaReviewPage() {
           Volver a libros
         </Link>
 
-        <header className="mb-10">
+        <header className="mb-10 max-w-3xl">
           <Badge
             variant="outline"
             className="mb-4 border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-emerald-400"
@@ -38,7 +38,8 @@ export default function ProgrammingAwsLambdaReviewPage() {
           <p className="text-zinc-500">John Chapin y Mike Roberts · Capítulo 1</p>
         </header>
 
-        <div className="prose prose-neutral max-w-none leading-relaxed dark:prose-invert prose-headings:font-serif prose-headings:tracking-tight prose-a:text-emerald-500 prose-a:underline-offset-4">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1fr)_260px]">
+          <div className="prose prose-neutral max-w-3xl leading-relaxed dark:prose-invert prose-headings:font-serif prose-headings:tracking-tight prose-a:text-emerald-500 prose-a:underline-offset-4">
           <h2>
             Capítulo 1: Introducción a Serverless, Amazon Web Services (AWS) y
             AWS Lambda
@@ -142,6 +143,15 @@ export default function ProgrammingAwsLambdaReviewPage() {
             Lambda se activa cada vez que se carga un archivo en un bucket de
             S3.
           </p>
+          </div>
+
+          <aside className="order-first mx-auto w-full max-w-[220px] lg:sticky lg:top-28 lg:order-last lg:mx-0 lg:max-w-none">
+            <img
+              src="https://chris-dsbm-site-assets.s3.mx-central-1.amazonaws.com/ChapinAndRoberts2020.webp"
+              alt="Portada de Programming AWS Lambda, de John Chapin y Mike Roberts"
+              className="w-full rounded-lg shadow-xl shadow-black/25"
+            />
+          </aside>
         </div>
       </article>
 
