@@ -73,38 +73,54 @@ const books = [
 
 export default function BooksPage() {
   return (
-    <main className="min-h-screen bg-background dark:bg-[#0a0a0b]">
+    <main className="books-page-background min-h-screen">
       <Navigation />
 
       <section className="max-w-5xl mx-auto px-6 pt-32 pb-24">
         <header className="max-w-3xl mb-12">
           <Badge
             variant="outline"
-            className="mb-4 border-emerald-500/30 text-emerald-400 bg-emerald-500/5 px-3 py-1"
+            className="mb-4 border-sky-500/30 bg-sky-500/5 px-3 py-1 text-sky-600 dark:text-sky-300"
           >
             Reading log
           </Badge>
           <h1 className="font-serif text-5xl md:text-6xl font-semibold mb-5 text-foreground dark:text-white tracking-tight">
-            Books <span className="text-emerald-500">&amp; Notes</span>
+            Books <span className="text-sky-600 dark:text-sky-300">&amp; Notes</span>
           </h1>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            Una colección de lecturas sobre AWS, serverless y DevOps, con ideas
-            y aprendizajes que voy recopilando en el camino.
-          </p>
+          <div className="space-y-4 text-lg leading-relaxed text-zinc-400">
+            <p>
+              En México tenemos un dicho: «Dime con quién andas y te diré quién
+              eres». A mí me gusta esta adaptación: «Dime qué lees y te diré
+              quién eres». Con esto en mente, quise integrar en mi página web un
+              apartado donde comparto algunos libros que ya terminé de leer o
+              que estoy leyendo.
+            </p>
+            <p>
+              Además de ser una forma de conocerme, creo que este apartado es
+              valioso porque me servirá para recomendar lecturas a amigos o
+              conocidos y, además, para llevar un registro de mis lecturas.
+            </p>
+            <p>
+              En las tarjetas que ya cuentan con reseña encontrarás un enlace
+              para leerla. Pido disculpas de antemano: la mayoría de los libros
+              que presento aquí todavía no tienen reseña. Espero ir agregándolas
+              poco a poco, de acuerdo con mis tiempos y ocupaciones.
+            </p>
+          </div>
         </header>
 
         <div className="space-y-6">
           {books.map((book) => (
             <Card
               key={book.isbn}
-              className="group relative overflow-hidden border-emerald-500/10 bg-card dark:bg-[#0a0a0b] p-5 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] md:p-6"
+              className="group relative overflow-hidden border-sky-500/15 bg-card/90 p-5 transition-all duration-500 hover:border-sky-400/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.12)] dark:bg-[#0a0a0b]/85 md:p-6"
             >
               <div className="flex flex-col gap-6 md:flex-row">
                 <BookCover src={book.cover} title={book.title} />
 
                 <div className="min-w-0 flex-1 space-y-4">
                   <div>
-                    <h2 className="font-serif text-2xl font-semibold leading-tight text-foreground transition-colors group-hover:text-emerald-400 dark:text-white">
+                    <h2 className="font-serif text-2xl font-semibold leading-tight text-foreground transition-colors group-hover:text-sky-500 dark:text-white dark:group-hover:text-sky-300">
                       {book.title}
                     </h2>
                     <p className="mt-1 text-sm text-zinc-500">{book.authors}</p>
@@ -113,7 +129,7 @@ export default function BooksPage() {
                         <Badge
                           key={tag}
                           variant="outline"
-                          className="border-emerald-500/20 bg-emerald-500/5 text-[10px] font-bold uppercase tracking-wider text-emerald-500/80"
+                          className="border-sky-500/20 bg-sky-500/5 text-[10px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-300"
                         >
                           {tag}
                         </Badge>
@@ -125,10 +141,10 @@ export default function BooksPage() {
                     {book.summary}
                   </p>
 
-                  <div className="flex gap-3 rounded-lg border border-purple-500/10 bg-purple-500/5 px-4 py-3 transition-colors group-hover:border-purple-500/20">
-                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-purple-400" />
+                  <div className="flex gap-3 rounded-lg border border-fuchsia-500/15 bg-fuchsia-500/5 px-4 py-3 transition-colors group-hover:border-fuchsia-500/30">
+                    <Lightbulb className="mt-0.5 h-4 w-4 shrink-0 text-fuchsia-500 dark:text-fuchsia-300" />
                     <div>
-                      <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-purple-400/70">
+                      <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-fuchsia-600/80 dark:text-fuchsia-300/80">
                         Deep Tech Insight
                       </p>
                       <p className="text-xs leading-relaxed text-zinc-400">
@@ -140,7 +156,7 @@ export default function BooksPage() {
                   {book.reviewHref && (
                     <Link
                       href={book.reviewHref}
-                      className="inline-flex items-center gap-2 pt-1 text-xs font-bold text-zinc-500 transition-colors hover:text-emerald-400"
+                      className="inline-flex items-center gap-2 pt-1 text-xs font-bold text-zinc-500 transition-colors hover:text-fuchsia-600 dark:hover:text-fuchsia-300"
                     >
                       <ArrowRight className="h-3.5 w-3.5" />
                       <span>LEER RESEÑA DEL CAPÍTULO 1</span>
@@ -154,9 +170,9 @@ export default function BooksPage() {
 
         <Card
           id="software-engineering-for-absolute-beginners"
-          className="mt-12 border-emerald-500/10 bg-card p-6 dark:bg-[#0a0a0b]"
+          className="mt-12 border-fuchsia-500/15 bg-card/90 p-6 dark:bg-[#0a0a0b]/85"
         >
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-emerald-500/70">
+          <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-fuchsia-600/80 dark:text-fuchsia-300/80">
             Lectura mencionada
           </p>
           <h2 className="font-serif text-xl font-semibold text-foreground dark:text-white">

@@ -19,7 +19,7 @@ export default function ProgrammingAwsLambdaReviewPage() {
       <article className="mx-auto max-w-6xl px-6 pb-24 pt-32">
         <Link
           href="/books"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-emerald-400"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-sky-500 dark:hover:text-sky-300"
         >
           <ArrowLeft className="h-4 w-4" />
           Volver a libros
@@ -28,7 +28,7 @@ export default function ProgrammingAwsLambdaReviewPage() {
         <header className="mb-10 max-w-3xl">
           <Badge
             variant="outline"
-            className="mb-4 border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-emerald-400"
+            className="mb-4 border-sky-500/30 bg-sky-500/5 px-3 py-1 text-sky-600 dark:text-sky-300"
           >
             Reseña de lectura
           </Badge>
@@ -39,7 +39,7 @@ export default function ProgrammingAwsLambdaReviewPage() {
         </header>
 
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1fr)_260px]">
-          <div className="prose prose-neutral max-w-3xl leading-relaxed dark:prose-invert prose-headings:font-serif prose-headings:tracking-tight prose-a:text-emerald-500 prose-a:underline-offset-4">
+          <div className="prose prose-neutral max-w-3xl leading-relaxed dark:prose-invert prose-headings:font-serif prose-headings:tracking-tight prose-a:text-fuchsia-600 prose-a:underline-offset-4 dark:prose-a:text-fuchsia-300">
           <h2>
             Capítulo 1: Introducción a Serverless, Amazon Web Services (AWS) y
             AWS Lambda

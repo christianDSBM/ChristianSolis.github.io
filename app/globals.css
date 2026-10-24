@@ -159,6 +159,51 @@
   }
 }
 
+.books-page-background {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(
+      ellipse 85% 58% at 12% 8%,
+      rgba(59, 130, 246, 0.15) 0%,
+      rgba(59, 130, 246, 0.055) 48%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 76% 62% at 92% 28%,
+      rgba(217, 70, 239, 0.14) 0%,
+      rgba(217, 70, 239, 0.05) 48%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 75% 64% at 35% 78%,
+      rgba(99, 102, 241, 0.1) 0%,
+      transparent 75%
+    );
+  background-attachment: fixed;
+}
+
+.dark .books-page-background {
+  background-color: #090b16;
+  background-image:
+    radial-gradient(
+      ellipse 92% 68% at 12% 5%,
+      rgba(37, 99, 235, 0.3) 0%,
+      rgba(37, 99, 235, 0.12) 48%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 85% 72% at 94% 26%,
+      rgba(192, 38, 211, 0.26) 0%,
+      rgba(192, 38, 211, 0.1) 48%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 78% 66% at 34% 82%,
+      rgba(79, 70, 229, 0.2) 0%,
+      transparent 78%
+    );
+}
+
 html:not(.dark) [class*="bg-zinc-"] {
   background-color: var(--card);
 }
